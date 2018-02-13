@@ -4,74 +4,74 @@ Summary of deeplearning.ai (Coursera's deep learning specialization course)<br>
 ## Course 1: Neural Networks and Deep Learning<br>
 ### 1주차<br>
 Introduction to deep learning<br>
-	- Video: Welcome<br>
-			§ AI is the new electricity<br>
-			§ Electricity had once transformed countless industries: transportation, manufacturing, healthcare, communications, and more<br>
-			§ AI will now bring about an equally big transformation.<br>
-		○ What you'll learn<br>
-			§ Courses in the sequence (Specialization):<br>
-				□ Neural Networks and Deep Learning<br>
-				□ Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
-				□ Structuring your Machine Learning project<br>
-					® Train / Dev / Test<br>
-					® End-to-End<br>
-				□ Convolutional Neural Networks<br>
-					® CNN<br>
-				□ Natural Language Processing: Building sequence models<br>
-					® RNN<br>
-					® LSTM<br>
+- Video: Welcome<br>
+        - AI is the new electricity<br>
+        - Electricity had once transformed countless industries: transportation, manufacturing, healthcare, communications, and more<br>
+    		- AI will now bring about an equally big transformation.<br>
+    	- What you'll learn<br>
+			- Courses in the sequence (Specialization):<br>
+				- Neural Networks and Deep Learning<br>
+				- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
+				- Structuring your Machine Learning project<br>
+					- Train / Dev / Test<br>
+					- End-to-End<br>
+				- Convolutional Neural Networks<br>
+					- CNN<br>
+				- Natural Language Processing: Building sequence models<br>
+					- RNN<br>
+					- LSTM<br>
 	- Video: What is a neural network?<br>
-		○ Housing Price Prediction<br>
-			§ Neuron<br>
-			§ ReLU (Rectified Linear Unit)<br>
+		- Housing Price Prediction<br>
+			- Neuron<br>
+			- ReLU (Rectified Linear Unit)<br>
 	- Video: Supervised Learning with Neural Networks<br>
-		○ Supervised Learning - Example<br>
-			§ Standard NN<br>
-			§ CNN<br>
-			§ RNN<br>
-			§ Custom / Hybrid<br>
-		○ Neural Network Examples<br>
-			§ Standard NN<br>
-			§ Convolutional NN<br>
-			§ Recurrent NN<br>
-		○ Supervised Learning<br>
-			§ Structured data<br>
-				□ Tabled data<br>
-			§ Unstructured data<br>
-				□ Audio<br>
-				□ Image<br>
-				□ Text<br>
+		- Supervised Learning - Example<br>
+			- Standard NN<br>
+			- CNN<br>
+			- RNN<br>
+			- Custom / Hybrid<br>
+		- Neural Network Examples<br>
+			- Standard NN<br>
+			- Convolutional NN<br>
+			- Recurrent NN<br>
+		- Supervised Learning<br>
+			- Structured data<br>
+				- Tabled data<br>
+			- Unstructured data<br>
+				- Audio<br>
+				- Image<br>
+				- Text<br>
 	- Video: Why is Deep Learning taking off?<br>
-		○ Scale drives deep learning progress<br>
-			§ Small training data: almost no difference<br>
-			§ Large training data: significant difference in performance<br>
-			§ 3 Factors<br>
-				□ Data<br>
-				□ Computation<br>
-				□ Algorithms<br>
-			§ Iteration of Idea-Code-Experiment<br>
-				□ 10 min<br>
-				□ 1 day<br>
-				□ 1 month<br>
+		- Scale drives deep learning progress<br>
+			- Small training data: almost no difference<br>
+			- Large training data: significant difference in performance<br>
+			- 3 Factors<br>
+				- Data<br>
+				- Computation<br>
+				- Algorithms<br>
+			- Iteration of Idea-Code-Experiment<br>
+				- 10 min<br>
+				- 1 day<br>
+				- 1 month<br>
 	- Video: About this Course<br>
-		○ Courses in this Specialization<br>
-			§ Neural Networks and Deep Learning (We're at this step)<br>
-			§ Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
-			§ Structuring your Machine Learning project<br>
-			§ Convolutional Neural Networks<br>
-			§ Natural Language Processing: Building sequence models<br>
-		○ Outline of this Course<br>
-			§ Week 1: Introduction<br>
-			§ Week 2: Basic Neural Network Programming<br>
-			§ Week 3: One Hidden Layer Neural Networks<br>
-			§ Week 4: Deep Neural Networks<br>
+		- Courses in this Specialization<br>
+			- Neural Networks and Deep Learning (We're at this step)<br>
+			- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
+			- Structuring your Machine Learning project<br>
+			- Convolutional Neural Networks<br>
+			- Natural Language Processing: Building sequence models<br>
+		- Outline of this Course<br>
+			- Week 1: Introduction<br>
+			- Week 2: Basic Neural Network Programming<br>
+			- Week 3: One Hidden Layer Neural Networks<br>
+			- Week 4: Deep Neural Networks<br>
 	- Reading: Frequently Asked Questions<br>
 	- Video: Course Resources<br>
-		○ Discussion forum<br>
-			§ Questions, technical discussions, bug reports, etc.<br>
-		○ Contact us (deeplearning.ai)<br>
-		○ Companies (deeplearning.ai)<br>
-		○ Universities (deeplearning.ai)<br>
+		- Discussion forum<br>
+			- Questions, technical discussions, bug reports, etc.<br>
+		- Contact us (deeplearning.ai)<br>
+		- Companies (deeplearning.ai)<br>
+		- Universities (deeplearning.ai)<br>
 	- Reading: How to use Discussion Forums<br>
 	- Quiz: Introduction to deep learning<br>
 	- Video: Geoffrey Hinton Interview<br>
