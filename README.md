@@ -1,324 +1,325 @@
-# deeplearning.ai_lecture_note
-Summary of deeplearning.ai (Coursera's deep learning specialization course)<br>
-<br>
-## Course 1: Neural Networks and Deep Learning<br>
-### 1주차<br>
-Introduction to deep learning<br>
-- Video: Welcome<br>
-        - AI is the new electricity<br>
-        - Electricity had once transformed countless industries: transportation, manufacturing, healthcare, communications, and more<br>
-    		- AI will now bring about an equally big transformation.<br>
-    	- What you'll learn<br>
-			- Courses in the sequence (Specialization):<br>
-				- Neural Networks and Deep Learning<br>
-				- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
-				- Structuring your Machine Learning project<br>
-					- Train / Dev / Test<br>
-					- End-to-End<br>
-				- Convolutional Neural Networks<br>
-					- CNN<br>
-				- Natural Language Processing: Building sequence models<br>
-					- RNN<br>
-					- LSTM<br>
-	- Video: What is a neural network?<br>
-		- Housing Price Prediction<br>
-			- Neuron<br>
-			- ReLU (Rectified Linear Unit)<br>
-	- Video: Supervised Learning with Neural Networks<br>
-		- Supervised Learning - Example<br>
-			- Standard NN<br>
-			- CNN<br>
-			- RNN<br>
-			- Custom / Hybrid<br>
-		- Neural Network Examples<br>
-			- Standard NN<br>
-			- Convolutional NN<br>
-			- Recurrent NN<br>
-		- Supervised Learning<br>
-			- Structured data<br>
-				- Tabled data<br>
-			- Unstructured data<br>
-				- Audio<br>
-				- Image<br>
-				- Text<br>
-	- Video: Why is Deep Learning taking off?<br>
-		- Scale drives deep learning progress<br>
-			- Small training data: almost no difference<br>
-			- Large training data: significant difference in performance<br>
-			- 3 Factors<br>
-				- Data<br>
-				- Computation<br>
-				- Algorithms<br>
-			- Iteration of Idea-Code-Experiment<br>
-				- 10 min<br>
-				- 1 day<br>
-				- 1 month<br>
-	- Video: About this Course<br>
-		- Courses in this Specialization<br>
-			- Neural Networks and Deep Learning (We're at this step)<br>
-			- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br>
-			- Structuring your Machine Learning project<br>
-			- Convolutional Neural Networks<br>
-			- Natural Language Processing: Building sequence models<br>
-		- Outline of this Course<br>
-			- Week 1: Introduction<br>
-			- Week 2: Basic Neural Network Programming<br>
-			- Week 3: One Hidden Layer Neural Networks<br>
-			- Week 4: Deep Neural Networks<br>
-	- Reading: Frequently Asked Questions<br>
-	- Video: Course Resources<br>
-		- Discussion forum<br>
-			- Questions, technical discussions, bug reports, etc.<br>
-		- Contact us (deeplearning.ai)<br>
-		- Companies (deeplearning.ai)<br>
-		- Universities (deeplearning.ai)<br>
-	- Reading: How to use Discussion Forums<br>
-	- Quiz: Introduction to deep learning<br>
-	- Video: Geoffrey Hinton Interview<br>
-<br>
-### 2주차<br>
-Neural Networks Basics<br>
-	- Video: Binary Classification<br>
-		○ Binary Classification<br>
-			§ 1 (cat) vs 0 (non cat)<br>
-			§ Red, Green, and Blue<br>
-				□ 64 x 64 x 3 = 12,288<br>
-				□ N = Nx = 12,288<br>
-				□ X → Y<br>
-		○ Notation<br>
-			§ M_train<br>
-			§ M_test<br>
-			§ X.shape<br>
-			§ Rnx x m<br>
-	- Video: Logistic Regression<br>
-		○ Logistic Regression<br>
-			§ Given x, want y_hat = P(y=1 | x)<br>
-				□ X∈Rnx, 0≤y_hat≤1<br>
-				□ Parameters: w∈Rnx, b∈R(real number)<br>
-				□ Output: y_hat=sigmoid(wT * x + b)<br>
-			§ Sigmoid(z) = 1 / (1 + e-z)<br>
-				□ If z large, sigmoid(z) = 1 / (1+0) = 1<br>
-				□ If z large negative number,sigmoid(z) = 1 / (1 + e-z) ≒ 1 / (1+Big_num) ≒ 0<br>
-	- Video: Logistic Regression Cost Function<br>
-		○ Logistic Regression cost function<br>
-			§ y_hat = sigmoid(wT * x(i) + b), where sigmoid(z(i)) = 1 / (1 + ez(i))<br>
-			§ Given {(x(1), y(1)), …, (x(m), y(m))}, want  y_hat(i) ≒ y(i)<br>
-			§ Loss (error) function:<br>
-				□ L(y_hat, y) = 1/2 * (y_hat - y)2<br>
-				□ L(y_hat, y) = -(y*log(y_hat) + (1-y)log(1 - y_hat))<br>
-					® If y=1: L(y_hat, y) = -log(y_hat)<br>
-						◊ Want log(y_hat) large, want y_hat large.<br>
-					® If y=0: L(y_hat, y) = -log(1 - y_hat)<br>
-						◊ Want log(1 - y_hat) … want y_hat small.<br>
-			§ Cost function:<br>
-				□ J(w, b) = (1/m) ∑1~m(L(y_hat(i), y(i))<br>
-				□ = -(1/m) ∑1~m((y(i)*log(y_hat(i)) + (1-y(i))log(1 - y_hat(i))))<br>
-	- Video: Gradient Descent<br>
-		○ Gradient Descent<br>
-			§ Recap: y_hat = sigmoid(wT * x(i) + b), sigmoid(z(i)) = 1 / (1 + e-z(i))<br>
-			§ J(w, b) = (1/m) ∑1~m(L(y_hat(i), y(i))= -(1/m) ∑1~m((y(i)*log(y_hat(i)) + (1-y(i))log(1 - y_hat(i))))<br>
-			§ Want to find w, b, that minimize J(w, b)<br>
-			§ w := w - alpha * (dJ(w) / dw)<br>
-				□ Alpha: learning rate<br>
-				□ dJ(w) / dw: "dw"<br>
-				□ Same as… w := w - alpha * dw<br>
-			§ J(w, b)<br>
-				□ w := w - alpha * (dJ(w, b) / dw)<br>
-				□ b := b - alpha * (DJ(w, b) / db)<br>
-			§ ∂: "partial derivative"d: J<br>
-	- Video: Derivatives<br>
-		○ Intuition about derivatives<br>
-			§ Ex) f(a) = 3a<br>
-				□ If a = 2, f(a) = 6<br>
-				□ If a = 2.001, f(a) = 6.003<br>
-			§ Slope (derivative) of f(a) at a = 2 is 3<br>
-				□ Slope: height/width<br>
-					® 0.003 / 0.001<br>
-				□ If a = 5, f(a) = 15<br>
-				□ If a = 5.001, f(a) = 15.003<br>
-				□ Slope at a = 5 is also 3<br>
-	- Video: More Derivative Examples<br>
-		○ Ex) f(a) = a2<br>
-			§ If a = 2, f(a) = 4<br>
-			§ If a = 2.001, f(a) ≒ 4.004 (4.004001)<br>
-			§ Slope (derivative) of f(a) at a = 2 is 4.<br>
-			§ (d/da)f(a) = 4 when a = 2<br>
-			§ If a = 5, f(a) = 25<br>
-			§ If a = 25, f(a) ≒ 25.010<br>
-			§ (d/da)f(a) = 10 when a = 5<br>
-			§ (d/da)f(a) = (d/da) a2 = 2a<br>
-			§ (d/da) a2 = 2a<br>
-				□ (2a) x 0.001<br>
-		○ If f(a) = a2, then (d/da)f(a) = 2a<br>
-			§ If a = 2, (d/da)f(a) = 4<br>
-		○ If f(a) = a3, then (d/da)f(a) = 3a2<br>
-			§ If a = 2, (d/da)f(a) = 12<br>
-		○ If f(a) = loge(a), then (d/da)f(a) = 1/a<br>
-			§ If a = 2, (d/da)f(a) = 1/2<br>
-	- Video: Computation Graph<br>
-		○ Computation Graph<br>
-			§ Ex) J(a, b, c) = 3(a + bc)<br>
-				□ u = bc<br>
-				□ v = a + bc<br>
-					® v = a + u<br>
-				□ J = 3(a + bc)<br>
-					® J = 3v<br>
-				□ 3(a + bc) = 3(5 + 3x2) = 33<br>
-	- Video: Derivatives with a Computation Graph<br>
-		○ Computing derivatives<br>
-			§ (From previous video) J = 3v<br>
-				□ v = a + u<br>
-				□ u = bc<br>
-				□ a = 5, b = 3, c = 2<br>
-			§ dJ/dv = ? = 3<br>
-				□ f(a) = 3a<br>
-					® df(a)/da = df/da = 3<br>
-				□ J = 3v<br>
-					® dJ/dv = 3<br>
-			§ dJ/da = 3 = dJ/dv * dv/da<br>
-				□ dv/da = 1<br>
-				□ 3 = 3 x 1<br>
-			§ J → dJ/dv → dJ/da = "da" = 3<br>
-			§ d(FindOutputVar)/d(Var)<br>
-			§ u = bc<br>
-				□ du = 3<br>
-				□ dJ/du = 3 = dJ/dv * dv/du = 3 * 1<br>
-				□ dJ/db = dJ/du * du/db = 2 = 6<br>
-					® dJ/du = 3<br>
-					® du/db = 2<br>
-				□ dJ/dc = dJ/du * du/dc = 9<br>
-					® dJ/du = 3<br>
-					® du/dc = 3<br>
-			§ From above, "da" = 3, "db" = 6, "dc" = 9<br>
-	- Video: Logistic Regression Gradient Descent<br>
-		○ Logistic regression recap<br>
-			§ Z = wTx + b<br>
-			§ y_hat = a = sigmoid(z)<br>
-			§ L(a, y) = -(ylog(a) + (1 - y)log(1 - a))<br>
-			§ For x1, w1, x2, w2, b<br>
-				□ Z = w1x1 + w2x2 + b → y_hat = a = sigmoid(z) → L(a, y)<br>
-		○ Logistic regression derivatives<br>
-			§ L(a, y)→ dL(a, y)/da    = "da"    = -y/a + (1-y)/(1-a)→ "dz"    = dL/dz    = dL(a, y)/dz    = a - y    = dL/da * da/dz    = dL/da * a(1-a)<br>
-			§ ∂L/∂w1 = "dw1" = x1 * dz<br>
-			§ dw2 = x2 * dz<br>
-			§ db = dz<br>
-			§ In result,<br>
-				□ w1 := w1 - alpha * dw1<br>
-				□ w2 := w2 - alpha * dw2<br>
-				□ b := b - alpha * db<br>
-	- Video: Gradient Descent on m Examples<br>
-		○ Logistic regression on m examples<br>
-			§ (Check slide)<br>
-	- Video: Vectorization<br>
-		○ What is vectorization?<br>
-			§ Non-vectorized:<br>
-				□ z = 0for i in range(n - x):    z +=  w[i] * x[i]z += b<br>
-			§ Vectorized:<br>
-				□ z = np.dot(w, x) + b<br>
-				□ np.dot(w, x): wTx<br>
-		○ Examples in practice<br>
-			§ A = np.array([1, 2, 3, 4])<br>
-				□ Result: [1, 2, 3, 4]<br>
-			§ Vectorized version vs. for loop<br>
-				□ Vectorized version: 1.5027… ms<br>
-				□ For loop: 474.2951… ms<br>
-		○ GPU/CPU - SIMD: Single Instruction Multiple Data<br>
-	- Video: More Vectorization Examples<br>
-		○ Neural network programming guideline<br>
-			§ Whenever possible, avoid explicit for-loops.<br>
-				□ Bad example<br>
-					® u = Avui = ∑(Ai * v)u = np.zeros((n, 1))for i …    for j …        u[i] += A[i][j] * v[j]<br>
-				□ Good example<br>
-					® u = np.dot(A, v)<br>
-		○ Vectors and matrix valued functions<br>
-			§ Say you need to apply the exponential operation on every element of a matrix/vector.<br>
-				□ u = np.zeros((n, 1))for i in range(n):    u[i] = math.exp(v[i])<br>
-				□ Calculation examples<br>
-					® import numpy as np<br>
-					® u = np.exp(v)<br>
-					® np.log(v)<br>
-					® np.abs(v)<br>
-					® np.maximum(v, 0)<br>
-					® v\**2<br>
-		○ Logistic regression derivatives<br>
-			§ dw = np.zeros((n_x, 1))<br>
-			§ dw += x(i)dz(i)<br>
-			§ dw /= m<br>
-	- Video: Vectorizing Logistic Regression<br>
-		○ Vectorizing Logistic Regression<br>
-			§ First set<br>
-				□ z(1) = wTx(1) + b<br>
-				□ a(1) = sigmoid(z(1))<br>
-			§ Second set<br>
-				□ z(2) = wTx(2) + b<br>
-				□ a(1) = sigmoid(z(2))<br>
-			§ Third set<br>
-				□ z(3) = wTx(3) + b<br>
-				□ a(1) = sigmoid(z(3))<br>
-			§ Vectorized calculation<br>
-				□ z = np.dot(w.T, x) + b<br>
-					® "broadcasting"<br>
-					® [z(1), z(2), ..., z(m)] = wTx + [b(1), b(2), ..., b(m)]<br>
-				□ A = [a(1), a(2), ..., a(m)] = sigmoid(z)<br>
-	- Video: Vectorizing Logistic Regression's Gradient Output(Computation)<br>
-		○ Vectorizing Logistic Regression<br>
-			§ (Check slide)<br>
-		○ Implementing Logistic Regression<br>
-			§ for iter in range(1000):<br>
-				□ z = np.dot(w.T, X) + b<br>
-				□ A = sigmoid(z)<br>
-				□ dZ = A - Y<br>
-				□ dw = 1/m * X * dZT<br>
-				□ db = 1/m * np.sum(dZ)<br>
-				□ w := w - alpha * dw<br>
-				□ b := b - alpha * db<br>
-	- Video: Broadcasting in Python<br>
-		○ Broadcasting example<br>
-			§ Cal = A.sum(axis=0)<br>
-				□ [59.   239.    155.4    76.9]<br>
-			§ 100 * A/Cal.reshape(1, 4)<br>
-				□ [[94.91525424    0.          …    ] [   2.03389831    43.51…       ] [ … ]]<br>
-				□ A / Cal<br>
-					® (3, 4) / (1, 4)<br>
-		○ General Principle<br>
-			§ (m, n) & [+, -, *, /]<br>
-				□ (1, n) → (m, n)<br>
-				□ (m, 1) → (m, n)<br>
-			§ Matlab / Octave: bsxfun<br>
-	- Video: A note on python/numpy vectors<br>
-		○ Python Demo<br>
-		○ Python / numpy vectors<br>
-			§ a = np.random.randn(5)<br>
-				□ a.shape = (5, )<br>
-				□ "rank 1 array"<br>
-				□ DON'T USE!<br>
-			§ a = np.random.randn(5, 1)<br>
-				□ a.shape = (5, 1)<br>
-				□ Column vector<br>
-			§ a = np.random.randn(1, 5)<br>
-				□ a.shape = (1, 5)<br>
-				□ Row vector<br>
-			§ assert(a.shape == (5, 1))<br>
-				□ a = a.shape((5,1))<br>
-	- Video: Quick tour of Jupyter/iPython Notebooks<br>
-	- Video: Explanation of logistic regression cost function (optional)<br>
-		○ Logistic regression cost function<br>
-			§ If y = 1: p(y|x) = y_hat<br>
-			§ If y = 0: p(y|x) = 1 - y_hat<br>
-			§ To sum up, it's p(y|x)<br>
-			§ p(y|x) = y_haty (1 - y_hat)(1 - y)<br>
-				□ If y = 1: p(y|x) = y_hat (1 - y_hat)0<br>
-				□ If y = 0: p(y|x) = y_hat0 (1 - y_hat)1=  1 x (1 - y_hat) = 1 - y_hat<br>
-				□ Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)= y log(y_hat) + (1 - y) log(1 - y_hat)= - L(y_hat, y)<br>
-		○ Cost on m examples<br>
-			§ log p(labels in training set) = log∏1~mp(y(i)|x(i))<br>
-			§ log p(…) = ∑1~m log p(y(i)|x(i))(log p(y(i)|x(i)) = -L(y_hat(i)|y(i)) )= -∑1~mL(y_hat(i)|y(i))<br>
-			§ Cost (to minimize)<br>
-				□ J(w, b) = 1/m ∑1~mL(y_hat(i)|y(i))<br>
-			§ "Maximum likelihood estimation"<br>
-	- Quiz: Neural Network Basics<br>
-	- Reading: Deep Learning Honor Code<br>
-	- Reading: Programming Assignment FAQ<br>
-	- Practice Programming Assignment: Python Basics with numpy (optional)<br>
-	- Programming Assignment: Logistic Regression with a Neural Network mindset<br>
-	- Video: Pieter Abbeel Interview<br>
+
+
+
+## Course 1: Neural Networks and Deep Learning
+### 1주차
+#### Introduction to deep learning
+- Video: Welcome
+	- AI is the new electricity
+	- Electricity had once transformed countless industries: transportation, manufacturing, healthcare, communications, and more
+	- AI will now bring about an equally big transformation.
+	- What you'll learn
+		- Courses in the sequence (Specialization):
+			- Neural Networks and Deep Learning
+			- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
+			- Structuring your Machine Learning project
+				- Train / Dev / Test
+				- End-to-End
+			- Convolutional Neural Networks
+				- CNN
+			- Natural Language Processing: Building sequence models
+				- RNN
+				- LSTM
+- Video: What is a neural network?
+	- Housing Price Prediction
+		- Neuron
+		- ReLU (Rectified Linear Unit)
+- Video: Supervised Learning with Neural Networks
+	- Supervised Learning - Example
+		- Standard NN
+		- CNN
+		- RNN
+		- Custom / Hybrid
+	- Neural Network Examples
+		- Standard NN
+		- Convolutional NN
+		- Recurrent NN
+	- Supervised Learning
+		- Structured data
+			- Tabled data
+		- Unstructured data
+			- Audio
+			- Image
+			- Text
+- Video: Why is Deep Learning taking off?
+	- Scale drives deep learning progress
+	- Small training data: almost no difference
+		- Large training data: significant difference in performance
+		- 3 Factors
+			- Data
+			- Computation
+			- Algorithms
+		- Iteration of Idea-Code-Experiment
+		- 10 min
+		- 1 day
+		- 1 month
+- Video: About this Course
+	- Courses in this Specialization
+		- Neural Networks and Deep Learning (We're at this step)
+		- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
+		- Structuring your Machine Learning project
+		- Convolutional Neural Networks
+		- Natural Language Processing: Building sequence models
+	- Outline of this Course
+		- Week 1: Introduction
+		- Week 2: Basic Neural Network Programming
+		- Week 3: One Hidden Layer Neural Networks
+		- Week 4: Deep Neural Networks
+- Reading: Frequently Asked Questions
+- Video: Course Resources
+	- Discussion forum
+		- Questions, technical discussions, bug reports, etc.
+	- Contact us (deeplearning.ai)
+	- Companies (deeplearning.ai)
+	- Universities (deeplearning.ai)
+- Reading: How to use Discussion Forums
+- Quiz: Introduction to deep learning
+- Video: Geoffrey Hinton Interview
+
+### 2주차
+#### Neural Networks Basics
+- Video: Binary Classification
+	- Binary Classification
+		- 1 (cat) vs 0 (non cat)
+		- Red, Green, and Blue
+			- 64 x 64 x 3 = 12,288
+			- N = N_x = 12,288
+			- X → Y
+	- Notation
+		- M_train
+		- M_test
+		- X.shape
+		- R_nx x m
+- Video: Logistic Regression
+	- Logistic Regression
+		- Given x, want y_hat = P(y=1 | x)
+			- X∈R^nx^, 0 ≤ y_hat ≤ 1
+			- Parameters: w∈R_nx, b∈R(real number)
+			- Output: y_hat = sigmoid(w^T^ * x + b)
+		- Sigmoid(z) = 1 / (1 + e^(-z)^)
+			- If z large, sigmoid(z) = 1 / (1+0) = 1
+			- If z large negative number,<br> sigmoid(z) = 1 / (1 + e^(-z)^) ≒ 1 / (1+Big_num) ≒ 0
+- Video: Logistic Regression Cost Function
+	- Logistic Regression cost function
+		- y_hat = sigmoid(w^T^ * x~i~ + b), where sigmoid(z~i~) = 1 / (1 + e^z~i~))
+		- Given {(x~1~, y~1~), …, (x~m~, y~m~)}, want  y_hat~i~ ≒ y~i~
+		- Loss (error) function:
+			- L(y_hat, y) = 1/2 * (y_hat - y)^2^
+			- L(y_hat, y) = -(y log(y_hat) + (1-y) log(1 - y_hat))
+				- If y=1: L(y_hat, y) = - log(y_hat)
+					- Want log(y_hat) large, want y_hat large.
+				- If y=0: L(y_hat, y) = -log(1 - y_hat)
+					- Want log(1 - y_hat) … want y_hat small.
+		- Cost function:
+			- J(w, b) = (1/m) ∑~1-m~(L(y_hat~i~, y~i~)
+			- = -(1/m) ∑~1-m~((y~i~*log(y_hat~i~) + (1-y~i~)log(1 - y_hat~i~)))
+- Video: Gradient Descent
+	- Gradient Descent
+		- Recap: y_hat = sigmoid(w^T^ * x~i~ + b), sigmoid(z~i~) = 1 / (1 + e^-z~i~)
+		- J(w, b) = (1/m) ∑~1-m~(L(y_hat~i~, y~i~) = -(1/m) ∑~1-m~((y~i~*log(y_hat~i~) + (1-y~i~)log(1 - y_hat~i~)))
+		- Want to find w, b, that minimize J(w, b)
+		- w := w - alpha * (dJ(w) / dw)
+			- Alpha: learning rate
+			- dJ(w) / dw: "dw"
+			- Same as… w := w - alpha * dw
+		- J(w, b)
+			- w := w - alpha * (dJ(w, b) / dw)
+			- b := b - alpha * (DJ(w, b) / db)
+		- ∂: "partial derivative"<br>d: J
+- Video: Derivatives
+	- Intuition about derivatives
+		- Ex) f(a) = 3a
+			- If a = 2, f(a) = 6
+			- If a = 2.001, f(a) = 6.003
+		- Slope (derivative) of f(a) at a = 2 is 3
+			- Slope: height/width
+				- 0.003 / 0.001
+			- If a = 5, f(a) = 15
+			- If a = 5.001, f(a) = 15.003
+			- Slope at a = 5 is also 3
+- Video: More Derivative Examples
+	- Ex) f(a) = a^2^
+		- If a = 2, f(a) = 4
+		- If a = 2.001, f(a) ≒ 4.004 (4.004001)
+		- Slope (derivative) of f(a) at a = 2 is 4.
+		- (d/da)f(a) = 4 when a = 2
+		- If a = 5, f(a) = 25
+		- If a = 25, f(a) ≒ 25.010
+		- (d/da)f(a) = 10 when a = 5
+		- (d/da)f(a) = (d/da) a^2^ = 2a
+		- (d/da) a^2^ = 2a
+			- (2a) x 0.001
+	- If f(a) = a^2^, then (d/da) f(a) = 2a
+		- If a = 2, (d/da) f(a) = 4
+	- If f(a) = a^3^, then (d/da) f(a) = 3a^2^
+		- If a = 2, (d/da) f(a) = 12
+	- If f(a) = log~e~(a), then (d/da) f(a) = 1/a
+		- If a = 2, (d/da) f(a) = 1/2
+- Video: Computation Graph
+	- Computation Graph
+		- Ex) J(a, b, c) = 3(a + bc)
+			- u = bc
+			- v = a + bc
+				- v = a + u
+			- J = 3(a + bc)
+				- J = 3v
+			- 3(a + bc) = 3(5 + 3x2) = 33
+- Video: Derivatives with a Computation Graph
+	- Computing derivatives
+		- (From previous video) J = 3v
+			- v = a + u
+			- u = bc
+			- a = 5, b = 3, c = 2
+		- dJ/dv = ? = 3
+			- f(a) = 3a
+				- df(a)/da = df/da = 3
+			- J = 3v
+				- dJ/dv = 3
+		- dJ/da = 3 = dJ/dv * dv/da
+			- dv/da = 1
+			- 3 = 3 x 1
+		- J → dJ/dv → dJ/da = "da" = 3
+		- d(FindOutputVar)/d(Var)
+		- u = bc
+			- du = 3
+			- dJ/du = 3 = dJ/dv * dv/du = 3 * 1
+			- dJ/db = dJ/du * du/db = 2 = 6
+				- dJ/du = 3
+				- du/db = 2
+			- dJ/dc = dJ/du * du/dc = 9
+				- dJ/du = 3
+				- du/dc = 3
+		- From above, "da" = 3, "db" = 6, "dc" = 9
+- Video: Logistic Regression Gradient Descent
+	- Logistic regression recap
+		- Z = wTx + b
+		- y_hat = a = sigmoid(z)
+		- L(a, y) = -(y log(a) + (1 - y) log(1 - a))
+		- For x~1~, w~1~, x~2~, w~2~, b
+			- Z = w~1~x~1~ + w~2~x~2~ + b → y_hat = a = sigmoid(z) → L(a, y)
+	- Logistic regression derivatives
+		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da * da/dz<br>= dL/da * a(1-a)
+		- ∂L/∂w~1~ = "dw~1~" = x~1~ * dz
+		- dw~2~ = x~2~ * dz
+		- db = dz
+		- In result,
+			- w~1~ := w~1~ - alpha * dw~1~
+			- w~2~ := w~2~ - alpha * dw~2~
+			- b := b - alpha * db
+- Video: Gradient Descent on m Examples
+	- Logistic regression on m examples
+		- (Check slide)
+- Video: Vectorization
+	- What is vectorization?
+		- Non-vectorized:
+			- z = 0<br> for i in range(n - x):<br> z +=  w[i] * x[i]<br> z += b
+		- Vectorized:
+			- z = np.dot(w, x) + b
+			- np.dot(w, x): w.T * x
+	- Examples in practice
+		- A = np.array([1, 2, 3, 4])
+			- Result: [1, 2, 3, 4]
+		- Vectorized version vs. for loop
+			- Vectorized version: 1.5027… ms
+			- For loop: 474.2951… ms
+	- GPU/CPU - SIMD: Single Instruction Multiple Data
+- Video: More Vectorization Examples
+	- Neural network programming guideline
+		- Whenever possible, avoid explicit for-loops.
+			- Bad example
+				- u = Av<br> ui = ∑(Ai * v)
+				- u = np.zeros((n, 1))<br> for i …:<br> for j …: <br> u[i] += A[i][j] * v[j]
+			- Good example
+				- u = np.dot(A, v)
+	- Vectors and matrix valued functions
+		- Say you need to apply the exponential operation on every element of a matrix/vector.
+			- u = np.zeros((n, 1))<br>for i in range(n):<br> u[i] = math.exp(v[i])
+			- Calculation examples
+				- import numpy as np
+				- u = np.exp(v)
+				- np.log(v)
+				- np.abs(v)
+				- np.maximum(v, 0)
+				- v\**2
+	- Logistic regression derivatives
+		- dw = np.zeros((n_x, 1))
+		- dw += x_i * dz_i
+		- dw /= m
+- Video: Vectorizing Logistic Regression
+	- Vectorizing Logistic Regression
+		- First set
+			- z^(1)^ = w^T^x^(1)^ + b
+			- a^(1)^ = sigmoid(z^(1)^)
+		- Second set
+			- z^(2)^ = w^T^x^(2)^ + b
+			- a^(1)^ = sigmoid(z^(2)^)
+		- Third set
+			- z^(3)^ = w^T^x^(3)^ + b
+			- a^(1)^ = sigmoid(z^(3)^)
+		- Vectorized calculation
+			- z = np.dot(w.T, x) + b
+				- "broadcasting"
+				- [z^(1)^, z^(2)^, ..., z^(m)^] = w^T^x + [b^(1)^, b^(2)^, ..., b^(m)^]
+			- A = [a^(1)^, a^(2)^, ..., a^(m)^] = sigmoid(z)
+- Video: Vectorizing Logistic Regression's Gradient Output(Computation)
+	- Vectorizing Logistic Regression
+		- (Check slide)
+	- Implementing Logistic Regression
+		- for iter in range(1000):
+			- z = np.dot(w.T, X) + b
+			- A = sigmoid(z)
+			- dZ = A - Y
+			- dw = 1/m * X * dZT
+			- db = 1/m * np.sum(dZ)
+			- w := w - alpha * dw
+			- b := b - alpha * db
+- Video: Broadcasting in Python
+	- Broadcasting example
+		- Cal = A.sum(axis=0)
+			- [59.   239.    155.4    76.9]
+		- 100 * A/Cal.reshape(1, 4)
+			- [[94.91525424    0.          …    ]<br> [   2.03389831    43.51…       ]<br> [ … ]]
+			- A / Cal
+				- (3, 4) / (1, 4)
+	- General Principle
+		- (m, n) & [+, -, *, /]
+			- (1, n) → (m, n)
+			- (m, 1) → (m, n) 
+		- Matlab / Octave: bsxfun
+- Video: A note on python/numpy vectors
+	- Python Demo
+	- Python / numpy vectors
+		- a = np.random.randn(5)
+			- a.shape = (5, )
+			- "rank 1 array"
+			- DON'T USE!
+		- a = np.random.randn(5, 1)
+			- a.shape = (5, 1)
+			- Column vector
+		- a = np.random.randn(1, 5)
+			- a.shape = (1, 5)
+			- Row vector
+		- assert(a.shape == (5, 1))
+			- a = a.shape((5,1))
+- Video: Quick tour of Jupyter/iPython Notebooks
+- Video: Explanation of logistic regression cost function (optional)
+	- Logistic regression cost function
+		- If y = 1: p(y|x) = y_hat
+		- If y = 0: p(y|x) = 1 - y_hat
+		- To sum up, it's p(y|x)
+		- p(y|x) = y_haty (1 - y_hat)(1 - y)
+			- If y = 1: p(y|x) = y_hat (1 - y_hat)0
+			- If y = 0: p(y|x) = y_hat0 (1 - y_hat)1<br>=  1 x (1 - y_hat) = 1 - y_hat
+			- Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)<br>= y log(y_hat) + (1 - y) log(1 - y_hat)<br>= - L(y_hat, y)
+	- Cost on m examples
+		- log p(labels in training set) = log∏~1-m~p(y_i|x_i)
+		- log p(…) = ∑~1-m~ log p(y~i~|x~i~)<br>(log p(y~i~|x~i~) = -L(y_hat~i~|y~i~) )<br>= -∑~1-m~L(y_hat~i~|y~i~)
+		- Cost (to minimize)
+			- J(w, b) = 1/m ∑~1-m~L(y_hat~i~|y~i~)
+		- "Maximum likelihood estimation"
+- Quiz: Neural Network Basics
+- Reading: Deep Learning Honor Code
+- Reading: Programming Assignment FAQ
+- Practice Programming Assignment: Python Basics with numpy (optional)
+- Programming Assignment: Logistic Regression with a Neural Network mindset
+- Video: Pieter Abbeel Interview
