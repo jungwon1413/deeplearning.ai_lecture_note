@@ -1,6 +1,7 @@
 # deeplearning.ai Lecture Note
 Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 자료입니다. (written by Liquorshotz)<br>
-일부 노트는 용량문제로 인해 업로드가 되어 있지 않습니다.<br>
+~일부 노트는 용량문제로 인해 업로드가 되어 있지 않습니다.~<br>
+2018.02.18. Convolution Week 4 - What is face recognition을 제외한 업로드 문제 해결
 
 ## Course 1: Neural Networks and Deep Learning
 ### 1주차
