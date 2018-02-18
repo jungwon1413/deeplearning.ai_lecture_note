@@ -1,6 +1,6 @@
 # deeplearning.ai Lecture Note
-Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 자료입니다.
-(written by Liquorshotz)<br>
+Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 자료입니다. (written by Liquorshotz)<br>
+일부 노트는 용량문제로 인해 업로드가 되어 있지 않습니다.<br>
 
 ## Course 1: Neural Networks and Deep Learning
 ### 1주차
@@ -578,9 +578,9 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- [Sally] [Johnson] [is] [an] [orange] [farmer]
 		- [Robert] [Lin] [is] [an] [apple] [farmer]
 	- Transfer learning and word embeddings
-		i. Learn word embeddings from large text corpus. (1-100B words)<br>(Or download pre-trained embedding online.)
-		ii. Transfer embedding to new task with smaller training set.<br>(Say, 100k words)
-		iii. Optional: Continue to finetune the word embeddings with new data.
+		- Learn word embeddings from large text corpus. (1-100B words)<br>(Or download pre-trained embedding online.)
+		- Transfer embedding to new task with smaller training set.<br>(Say, 100k words)
+		- Optional: Continue to finetune the word embeddings with new data.
 	- Relation to face encoding
 - Video: Properties of word embeddings
 	- Analogies
@@ -684,13 +684,13 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Father : Doctor as Mother : Nurse (X)
 		- Word embeddings can reflect gender, ethnicity, age, sexual orientation, and other biases of the text used to train the model.
 	- Addressing bias in word embeddings
-		i. Identify bias direction.
+		- Identify bias direction.
 			- e_he - e_she
 			- e_male - e_female
 			- …
 			- Average all up
-		ii. Neutralize: For every word that is not definitional, project to get rid of bias.
-		iii. Equalize pairs.
+		- Neutralize: For every word that is not definitional, project to get rid of bias.
+		- Equalize pairs.
 - Quiz: Natural Language Processing & Word Embeddings
 - Programming Assignment: Operations on Word Vectors - Debiasing
 - Programming Assignment: Emojify
