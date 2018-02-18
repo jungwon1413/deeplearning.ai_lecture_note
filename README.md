@@ -96,16 +96,16 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Given x, want y_hat = P(y=1 | x)
 			- X∈R^nx^, 0 ≤ y_hat ≤ 1
 			- Parameters: w∈R_nx, b∈R(real number)
-			- Output: y_hat = sigmoid(w^T × x + b)
+			- Output: y_hat = sigmoid(w^T·x + b)
 		- Sigmoid(z) = 1 / (1 + e^(-z))
 			- If z large, sigmoid(z) = 1 / (1+0) = 1
 			- If z large negative number,<br> sigmoid(z) = 1 / (1 + e^(-z)) ≒ 1 / (1+Big_num) ≒ 0
 - Video: Logistic Regression Cost Function
 	- Logistic Regression cost function
-		- y_hat = sigmoid(w^T × x_i + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
+		- y_hat = sigmoid(w^T·x_i + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
 		- Given {(x_1, y_1), …, (x_m, y_m)}, want  y_hat_i ≒ y_i
 		- Loss (error) function:
-			- L(y_hat, y) = 1/2 × (y_hat - y)^2
+			- L(y_hat, y) = 1/2·(y_hat - y)^2
 			- L(y_hat, y) = -(y log(y_hat) + (1-y) log(1 - y_hat))
 				- If y=1: L(y_hat, y) = - log(y_hat)
 					- Want log(y_hat) large, want y_hat large.
@@ -113,19 +113,19 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 					- Want log(1 - y_hat) … want y_hat small.
 		- Cost function:
 			- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i)
-			- = -(1/m) ∑[1∽m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+			- = -(1/m) ∑[1∽m]((y_i·log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 - Video: Gradient Descent
 	- Gradient Descent
-		- Recap: y_hat = sigmoid(w^T × x_i + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
-		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i) = -(1/m) ∑[1∽m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+		- Recap: y_hat = sigmoid(w^T·x_i + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
+		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i) = -(1/m) ∑[1∽m]((y_i·log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 		- Want to find w, b, that minimize J(w, b)
-		- w := w - alpha × (dJ(w) / dw)
+		- w := w - alpha·(dJ(w) / dw)
 			- Alpha: learning rate
 			- dJ(w) / dw: "dw"
-			- Same as… w := w - alpha × dw
+			- Same as… w := w - alpha·dw
 		- J(w, b)
-			- w := w - alpha × (dJ(w, b) / dw)
-			- b := b - alpha × (DJ(w, b) / db)
+			- w := w - alpha·(dJ(w, b) / dw)
+			- b := b - alpha·(DJ(w, b) / db)
 		- ∂: "partial derivative"<br>d: J
 - Video: Derivatives
 	- Intuition about derivatives
@@ -176,18 +176,18 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- df(a)/da = df/da = 3
 			- J = 3v
 				- dJ/dv = 3
-		- dJ/da = 3 = dJ/dv × dv/da
+		- dJ/da = 3 = dJ/dv·dv/da
 			- dv/da = 1
 			- 3 = 3 x 1
 		- J → dJ/dv → dJ/da = "da" = 3
 		- d(FindOutputVar)/d(Var)
 		- u = bc
 			- du = 3
-			- dJ/du = 3 = dJ/dv × dv/du = 3 × 1
-			- dJ/db = dJ/du × du/db = 2 = 6
+			- dJ/du = 3 = dJ/dv·dv/du = 3·1
+			- dJ/db = dJ/du·du/db = 2 = 6
 				- dJ/du = 3
 				- du/db = 2
-			- dJ/dc = dJ/du × du/dc = 9
+			- dJ/dc = dJ/du·du/dc = 9
 				- dJ/du = 3
 				- du/dc = 3
 		- From above, "da" = 3, "db" = 6, "dc" = 9
@@ -197,26 +197,26 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- y_hat = a = sigmoid(z)
 		- L(a, y) = -(y log(a) + (1 - y) log(1 - a))
 		- For x_1, w_1, x_2, w_2, b
-			- Z = w_1*x_1 + w_2*x_2 + b → y_hat = a = sigmoid(z) → L(a, y)
+			- Z = w_1·x_1 + w_2·x_2 + b → y_hat = a = sigmoid(z) → L(a, y)
 	- Logistic regression derivatives
-		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da × da/dz<br>= dL/da × a(1-a)
-		- ∂L/∂w_1 = "dw_1" = x_1 × dz
-		- dw_2 = x_2 × dz
+		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da·da/dz<br>= dL/da·a(1-a)
+		- ∂L/∂w_1 = "dw_1" = x_1·dz
+		- dw_2 = x_2·dz
 		- db = dz
 		- In result,
-			- w_1 := w_1 - alpha × dw_1
-			- w_2 := w_2 - alpha × dw_2
-			- b := b - alpha × db
+			- w_1 := w_1 - alpha·dw_1
+			- w_2 := w_2 - alpha·dw_2
+			- b := b - alpha·db
 - Video: Gradient Descent on m Examples
 	- Logistic regression on m examples
 		- (Check slide)
 - Video: Vectorization
 	- What is vectorization?
 		- Non-vectorized:
-			- z = 0<br> for i in range(n - x):<br> z +=  w[i] × x[i]<br> z += b
+			- z = 0<br> for i in range(n - x):<br> z +=  w[i]·x[i]<br> z += b
 		- Vectorized:
 			- z = np.dot(w, x) + b
-			- np.dot(w, x): w.T × x
+			- np.dot(w, x): w.T·x
 	- Examples in practice
 		- A = np.array([1, 2, 3, 4])
 			- Result: [1, 2, 3, 4]
@@ -228,8 +228,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Neural network programming guideline
 		- Whenever possible, avoid explicit for-loops.
 			- Bad example
-				- u = Av<br> ui = ∑(Ai × v)
-				- u = np.zeros((n, 1))<br> for i …:<br> for j …: <br> u[i] += A[i][j] × v[j]
+				- u = Av<br> ui = ∑(Ai·v)
+				- u = np.zeros((n, 1))<br> for i …:<br> for j …: <br> u[i] += A[i][j]·v[j]
 			- Good example
 				- u = np.dot(A, v)
 	- Vectors and matrix valued functions
@@ -241,26 +241,26 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- np.log(v)
 				- np.abs(v)
 				- np.maximum(v, 0)
-				- v\**2
+				- v\*\*2
 	- Logistic regression derivatives
 		- dw = np.zeros((n_x, 1))
-		- dw += x_i × dz_i
+		- dw += x_i·dz_i
 		- dw /= m
 - Video: Vectorizing Logistic Regression
 	- Vectorizing Logistic Regression
 		- First set
-			- z(1) = w^T × x(1) + b
+			- z(1) = w^T·x(1) + b
 			- a(1) = sigmoid(z(1))
 		- Second set
-			- z(2) = w^T × x(2) + b
+			- z(2) = w^T·x(2) + b
 			- a(1) = sigmoid(z(2))
 		- Third set
-			- z(3) = w^T × x(3) + b
+			- z(3) = w^T·x(3) + b
 			- a(1) = sigmoid(z(3))
 		- Vectorized calculation
 			- z = np.dot(w.T, x) + b
 				- "broadcasting"
-				- [z(1), z(2), ..., z(m)] = w^T × x + [b(1), b(2), ..., b(m)]
+				- [z(1), z(2), ..., z(m)] = w^T·x + [b(1), b(2), ..., b(m)]
 			- A = [a(1), a(2), ..., a(m)] = sigmoid(z)
 - Video: Vectorizing Logistic Regression's Gradient Output(Computation)
 	- Vectorizing Logistic Regression
@@ -270,15 +270,15 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- z = np.dot(w.T, X) + b
 			- A = sigmoid(z)
 			- dZ = A - Y
-			- dw = 1/m × X × dZT
-			- db = 1/m × np.sum(dZ)
-			- w := w - alpha × dw
-			- b := b - alpha × db
+			- dw = 1/m·X·dZT
+			- db = 1/m·np.sum(dZ)
+			- w := w - alpha·dw
+			- b := b - alpha·db
 - Video: Broadcasting in Python
 	- Broadcasting example
 		- Cal = A.sum(axis=0)
 			- [59.   239.    155.4    76.9]
-		- 100 × A/Cal.reshape(1, 4)
+		- 100·A/Cal.reshape(1, 4)
 			- [[94.91525424    0.          …    ]<br> [   2.03389831    43.51…       ]<br> [ … ]]
 			- A / Cal
 				- (3, 4) / (1, 4)
