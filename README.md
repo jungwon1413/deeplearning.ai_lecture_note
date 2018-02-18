@@ -1,6 +1,6 @@
 # deeplearning.ai Lecture Note
 Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 자료입니다.
-(written by GITHUB_USERNAME)
+(written by Liquorshotz)<br>
 
 ## Course 1: Neural Networks and Deep Learning
 ### 1주차
@@ -96,36 +96,36 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Given x, want y_hat = P(y=1 | x)
 			- X∈R^nx^, 0 ≤ y_hat ≤ 1
 			- Parameters: w∈R_nx, b∈R(real number)
-			- Output: y_hat = sigmoid(w^T^ * x + b)
-		- Sigmoid(z) = 1 / (1 + e^(-z)^)
+			- Output: y_hat = sigmoid(w^T × x + b)
+		- Sigmoid(z) = 1 / (1 + e^(-z))
 			- If z large, sigmoid(z) = 1 / (1+0) = 1
-			- If z large negative number,<br> sigmoid(z) = 1 / (1 + e^(-z)^) ≒ 1 / (1+Big_num) ≒ 0
+			- If z large negative number,<br> sigmoid(z) = 1 / (1 + e^(-z)) ≒ 1 / (1+Big_num) ≒ 0
 - Video: Logistic Regression Cost Function
 	- Logistic Regression cost function
-		- y_hat = sigmoid(w^T^ * x~i~ + b), where sigmoid(z~i~) = 1 / (1 + e^z~i~))
-		- Given {(x~1~, y~1~), …, (x~m~, y~m~)}, want  y_hat~i~ ≒ y~i~
+		- y_hat = sigmoid(w^T × x_i + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
+		- Given {(x_1, y_1), …, (x_m, y_m)}, want  y_hat_i ≒ y_i
 		- Loss (error) function:
-			- L(y_hat, y) = 1/2 * (y_hat - y)^2^
+			- L(y_hat, y) = 1/2 × (y_hat - y)^2
 			- L(y_hat, y) = -(y log(y_hat) + (1-y) log(1 - y_hat))
 				- If y=1: L(y_hat, y) = - log(y_hat)
 					- Want log(y_hat) large, want y_hat large.
 				- If y=0: L(y_hat, y) = -log(1 - y_hat)
 					- Want log(1 - y_hat) … want y_hat small.
 		- Cost function:
-			- J(w, b) = (1/m) ∑~1-m~(L(y_hat~i~, y~i~)
-			- = -(1/m) ∑~1-m~((y~i~*log(y_hat~i~) + (1-y~i~)log(1 - y_hat~i~)))
+			- J(w, b) = (1/m) ∑[1~m](L(y_hat_i, y_i)
+			- = -(1/m) ∑[1~m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 - Video: Gradient Descent
 	- Gradient Descent
-		- Recap: y_hat = sigmoid(w^T^ * x~i~ + b), sigmoid(z~i~) = 1 / (1 + e^-z~i~)
-		- J(w, b) = (1/m) ∑~1-m~(L(y_hat~i~, y~i~) = -(1/m) ∑~1-m~((y~i~*log(y_hat~i~) + (1-y~i~)log(1 - y_hat~i~)))
+		- Recap: y_hat = sigmoid(w^T × x_i + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
+		- J(w, b) = (1/m) ∑[1~m](L(y_hat_i, y_i) = -(1/m) ∑[1~m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 		- Want to find w, b, that minimize J(w, b)
-		- w := w - alpha * (dJ(w) / dw)
+		- w := w - alpha × (dJ(w) / dw)
 			- Alpha: learning rate
 			- dJ(w) / dw: "dw"
-			- Same as… w := w - alpha * dw
+			- Same as… w := w - alpha × dw
 		- J(w, b)
-			- w := w - alpha * (dJ(w, b) / dw)
-			- b := b - alpha * (DJ(w, b) / db)
+			- w := w - alpha × (dJ(w, b) / dw)
+			- b := b - alpha × (DJ(w, b) / db)
 		- ∂: "partial derivative"<br>d: J
 - Video: Derivatives
 	- Intuition about derivatives
@@ -139,7 +139,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- If a = 5.001, f(a) = 15.003
 			- Slope at a = 5 is also 3
 - Video: More Derivative Examples
-	- Ex) f(a) = a^2^
+	- Ex) f(a) = a^2
 		- If a = 2, f(a) = 4
 		- If a = 2.001, f(a) ≒ 4.004 (4.004001)
 		- Slope (derivative) of f(a) at a = 2 is 4.
@@ -147,14 +147,14 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- If a = 5, f(a) = 25
 		- If a = 25, f(a) ≒ 25.010
 		- (d/da)f(a) = 10 when a = 5
-		- (d/da)f(a) = (d/da) a^2^ = 2a
-		- (d/da) a^2^ = 2a
+		- (d/da)f(a) = (d/da) a^2 = 2a
+		- (d/da) a^2 = 2a
 			- (2a) x 0.001
-	- If f(a) = a^2^, then (d/da) f(a) = 2a
+	- If f(a) = a^2, then (d/da) f(a) = 2a
 		- If a = 2, (d/da) f(a) = 4
-	- If f(a) = a^3^, then (d/da) f(a) = 3a^2^
+	- If f(a) = a^3, then (d/da) f(a) = 3a^2
 		- If a = 2, (d/da) f(a) = 12
-	- If f(a) = log~e~(a), then (d/da) f(a) = 1/a
+	- If f(a) = log_e(a), then (d/da) f(a) = 1/a
 		- If a = 2, (d/da) f(a) = 1/2
 - Video: Computation Graph
 	- Computation Graph
@@ -176,18 +176,18 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- df(a)/da = df/da = 3
 			- J = 3v
 				- dJ/dv = 3
-		- dJ/da = 3 = dJ/dv * dv/da
+		- dJ/da = 3 = dJ/dv × dv/da
 			- dv/da = 1
 			- 3 = 3 x 1
 		- J → dJ/dv → dJ/da = "da" = 3
 		- d(FindOutputVar)/d(Var)
 		- u = bc
 			- du = 3
-			- dJ/du = 3 = dJ/dv * dv/du = 3 * 1
-			- dJ/db = dJ/du * du/db = 2 = 6
+			- dJ/du = 3 = dJ/dv × dv/du = 3 × 1
+			- dJ/db = dJ/du × du/db = 2 = 6
 				- dJ/du = 3
 				- du/db = 2
-			- dJ/dc = dJ/du * du/dc = 9
+			- dJ/dc = dJ/du × du/dc = 9
 				- dJ/du = 3
 				- du/dc = 3
 		- From above, "da" = 3, "db" = 6, "dc" = 9
@@ -196,27 +196,27 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Z = wTx + b
 		- y_hat = a = sigmoid(z)
 		- L(a, y) = -(y log(a) + (1 - y) log(1 - a))
-		- For x~1~, w~1~, x~2~, w~2~, b
-			- Z = w~1~x~1~ + w~2~x~2~ + b → y_hat = a = sigmoid(z) → L(a, y)
+		- For x_1, w_1, x_2, w_2, b
+			- Z = w_1*x_1 + w_2*x_2 + b → y_hat = a = sigmoid(z) → L(a, y)
 	- Logistic regression derivatives
-		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da * da/dz<br>= dL/da * a(1-a)
-		- ∂L/∂w~1~ = "dw~1~" = x~1~ * dz
-		- dw~2~ = x~2~ * dz
+		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da × da/dz<br>= dL/da × a(1-a)
+		- ∂L/∂w_1 = "dw_1" = x_1 × dz
+		- dw_2 = x_2 × dz
 		- db = dz
 		- In result,
-			- w~1~ := w~1~ - alpha * dw~1~
-			- w~2~ := w~2~ - alpha * dw~2~
-			- b := b - alpha * db
+			- w_1 := w_1 - alpha × dw_1
+			- w_2 := w_2 - alpha × dw_2
+			- b := b - alpha × db
 - Video: Gradient Descent on m Examples
 	- Logistic regression on m examples
 		- (Check slide)
 - Video: Vectorization
 	- What is vectorization?
 		- Non-vectorized:
-			- z = 0<br> for i in range(n - x):<br> z +=  w[i] * x[i]<br> z += b
+			- z = 0<br> for i in range(n - x):<br> z +=  w[i] × x[i]<br> z += b
 		- Vectorized:
 			- z = np.dot(w, x) + b
-			- np.dot(w, x): w.T * x
+			- np.dot(w, x): w.T × x
 	- Examples in practice
 		- A = np.array([1, 2, 3, 4])
 			- Result: [1, 2, 3, 4]
@@ -228,8 +228,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Neural network programming guideline
 		- Whenever possible, avoid explicit for-loops.
 			- Bad example
-				- u = Av<br> ui = ∑(Ai * v)
-				- u = np.zeros((n, 1))<br> for i …:<br> for j …: <br> u[i] += A[i][j] * v[j]
+				- u = Av<br> ui = ∑(Ai × v)
+				- u = np.zeros((n, 1))<br> for i …:<br> for j …: <br> u[i] += A[i][j] × v[j]
 			- Good example
 				- u = np.dot(A, v)
 	- Vectors and matrix valued functions
@@ -244,24 +244,24 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- v\**2
 	- Logistic regression derivatives
 		- dw = np.zeros((n_x, 1))
-		- dw += x_i * dz_i
+		- dw += x_i × dz_i
 		- dw /= m
 - Video: Vectorizing Logistic Regression
 	- Vectorizing Logistic Regression
 		- First set
-			- z^(1)^ = w^T^x^(1)^ + b
-			- a^(1)^ = sigmoid(z^(1)^)
+			- z(1) = w^T × x(1) + b
+			- a(1) = sigmoid(z(1))
 		- Second set
-			- z^(2)^ = w^T^x^(2)^ + b
-			- a^(1)^ = sigmoid(z^(2)^)
+			- z(2) = w^T × x(2) + b
+			- a(1) = sigmoid(z(2))
 		- Third set
-			- z^(3)^ = w^T^x^(3)^ + b
-			- a^(1)^ = sigmoid(z^(3)^)
+			- z(3) = w^T × x(3) + b
+			- a(1) = sigmoid(z(3))
 		- Vectorized calculation
 			- z = np.dot(w.T, x) + b
 				- "broadcasting"
-				- [z^(1)^, z^(2)^, ..., z^(m)^] = w^T^x + [b^(1)^, b^(2)^, ..., b^(m)^]
-			- A = [a^(1)^, a^(2)^, ..., a^(m)^] = sigmoid(z)
+				- [z(1), z(2), ..., z(m)] = w^T × x + [b(1), b(2), ..., b(m)]
+			- A = [a(1), a(2), ..., a(m)] = sigmoid(z)
 - Video: Vectorizing Logistic Regression's Gradient Output(Computation)
 	- Vectorizing Logistic Regression
 		- (Check slide)
@@ -270,20 +270,20 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- z = np.dot(w.T, X) + b
 			- A = sigmoid(z)
 			- dZ = A - Y
-			- dw = 1/m * X * dZT
-			- db = 1/m * np.sum(dZ)
-			- w := w - alpha * dw
-			- b := b - alpha * db
+			- dw = 1/m × X × dZT
+			- db = 1/m × np.sum(dZ)
+			- w := w - alpha × dw
+			- b := b - alpha × db
 - Video: Broadcasting in Python
 	- Broadcasting example
 		- Cal = A.sum(axis=0)
 			- [59.   239.    155.4    76.9]
-		- 100 * A/Cal.reshape(1, 4)
+		- 100 × A/Cal.reshape(1, 4)
 			- [[94.91525424    0.          …    ]<br> [   2.03389831    43.51…       ]<br> [ … ]]
 			- A / Cal
 				- (3, 4) / (1, 4)
 	- General Principle
-		- (m, n) & [+, -, *, /]
+		- (m, n) & [+, -, \*, /]
 			- (1, n) → (m, n)
 			- (m, 1) → (m, n) 
 		- Matlab / Octave: bsxfun
@@ -313,10 +313,10 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- If y = 0: p(y|x) = y_hat0 (1 - y_hat)1<br>=  1 x (1 - y_hat) = 1 - y_hat
 			- Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)<br>= y log(y_hat) + (1 - y) log(1 - y_hat)<br>= - L(y_hat, y)
 	- Cost on m examples
-		- log p(labels in training set) = log∏~1-m~p(y_i|x_i)
-		- log p(…) = ∑~1-m~ log p(y~i~|x~i~)<br>(log p(y~i~|x~i~) = -L(y_hat~i~|y~i~) )<br>= -∑~1-m~L(y_hat~i~|y~i~)
+		- log p(labels in training set) = log∏[1~m]p(y_i|x_i)
+		- log p(…) = ∑[1~m] log p(y_i|x_i)<br>(log p(y_i|x_i) = -L(y_hat_i|y_i) )<br>= -∑[1~m]L(y_hat_i|y_i)
 		- Cost (to minimize)
-			- J(w, b) = 1/m ∑~1-m~L(y_hat~i~|y~i~)
+			- J(w, b) = 1/m ∑[1~m]L(y_hat_i|y_i)
 		- "Maximum likelihood estimation"
 - Quiz: Neural Network Basics
 - Reading: Deep Learning Honor Code
