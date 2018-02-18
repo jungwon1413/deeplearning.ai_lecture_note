@@ -112,12 +112,12 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- If y=0: L(y_hat, y) = -log(1 - y_hat)
 					- Want log(1 - y_hat) … want y_hat small.
 		- Cost function:
-			- J(w, b) = (1/m) ∑[1~m](L(y_hat_i, y_i)
-			- = -(1/m) ∑[1~m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+			- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i)
+			- = -(1/m) ∑[1∽m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 - Video: Gradient Descent
 	- Gradient Descent
 		- Recap: y_hat = sigmoid(w^T × x_i + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
-		- J(w, b) = (1/m) ∑[1~m](L(y_hat_i, y_i) = -(1/m) ∑[1~m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i) = -(1/m) ∑[1∽m]((y_i*log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
 		- Want to find w, b, that minimize J(w, b)
 		- w := w - alpha × (dJ(w) / dw)
 			- Alpha: learning rate
@@ -313,10 +313,10 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- If y = 0: p(y|x) = y_hat0 (1 - y_hat)1<br>=  1 x (1 - y_hat) = 1 - y_hat
 			- Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)<br>= y log(y_hat) + (1 - y) log(1 - y_hat)<br>= - L(y_hat, y)
 	- Cost on m examples
-		- log p(labels in training set) = log∏[1~m]p(y_i|x_i)
-		- log p(…) = ∑[1~m] log p(y_i|x_i)<br>(log p(y_i|x_i) = -L(y_hat_i|y_i) )<br>= -∑[1~m]L(y_hat_i|y_i)
+		- log p(labels in training set) = log∏[1∽m]p(y_i|x_i)
+		- log p(…) = ∑[1∽m] log p(y_i|x_i)<br>(log p(y_i|x_i) = -L(y_hat_i|y_i) )<br>= -∑[1∽m]L(y_hat_i|y_i)
 		- Cost (to minimize)
-			- J(w, b) = 1/m ∑[1~m]L(y_hat_i|y_i)
+			- J(w, b) = 1/m ∑[1∽m]L(y_hat_i|y_i)
 		- "Maximum likelihood estimation"
 - Quiz: Neural Network Basics
 - Reading: Deep Learning Honor Code
