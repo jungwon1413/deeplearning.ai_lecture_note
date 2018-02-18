@@ -328,386 +328,386 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 
 3주차
 Shallow Neural Networks
-	- Video: Neural Networks Overview
-		- What is a Neural Network?
-	- Video: Neural Network Representation
-		- Neural Network Representation
-	- Video: Computing a Neural Network's Output
-		- Neural Network Representation
-		- Neural Network Representation learning
-	- Video: Vectorizing across multiple examples
-		- Vectorizing across multiple examples
-	- Video: Explanation for Vectorized Implementation
-		- Justification for vectorized implementation
-		- Recap of vectorizing across multiple examples
-	- Video: Activation Functions
-		- Activation functions
-		- Pros and cons of activation functions
-	- Video: Why do you need non-linear activation functions?
-		- Activation function
-	- Video: Derivatives of activation functions
-		- Sigmoid activation function
-		- Tanh activation function
-		- ReLU and Leaky ReLU
-	- Video: Gradient Descent of Neural Networks
-		- Gradient descent for neural networks
-		- Formulas for computing derivatives
-	- Video: Backpropagation Intuition (optional)
-		- Computing gradients
-		- Neural network gradients
-		- Summary of gradient descent
-	- Video: Random Initialization
-		- What happens if you initialize weights to zero?
-		- Random initialization
-	- Quiz: Shallow Neural Networks
-	- Programming Assignment: Planar data classification with a hidden layer
-	- Video: Ian Goodfellow Interview
+- Video: Neural Networks Overview
+	- What is a Neural Network?
+- Video: Neural Network Representation
+	- Neural Network Representation
+- Video: Computing a Neural Network's Output
+	- Neural Network Representation
+	- Neural Network Representation learning
+- Video: Vectorizing across multiple examples
+	- Vectorizing across multiple examples
+- Video: Explanation for Vectorized Implementation
+	- Justification for vectorized implementation
+	- Recap of vectorizing across multiple examples
+- Video: Activation Functions
+	- Activation functions
+	- Pros and cons of activation functions
+- Video: Why do you need non-linear activation functions?
+	- Activation function
+- Video: Derivatives of activation functions
+	- Sigmoid activation function
+	- Tanh activation function
+	- ReLU and Leaky ReLU
+- Video: Gradient Descent of Neural Networks
+	- Gradient descent for neural networks
+	- Formulas for computing derivatives
+- Video: Backpropagation Intuition (optional)
+	- Computing gradients
+	- Neural network gradients
+	- Summary of gradient descent
+- Video: Random Initialization
+	- What happens if you initialize weights to zero?
+	- Random initialization
+- Quiz: Shallow Neural Networks
+- Programming Assignment: Planar data classification with a hidden layer
+- Video: Ian Goodfellow Interview
 
 4주차
 Deep Neural Networks
-	- Video: Deep L-layer neural network
-	- Video: Forward Propagation in a Deep Network
-	- Video: Getting your matrix dimensions right
-		- Vectorized implementation
-	- Video: Why deep representations?
-		- Intuition about deep representation
-		- Circuit theory and deep learning
-	- Video: Building blocks of deep neural networks
-		- Forward and backward functions
-	- Video: Forward and Backward Propagation
-		- Forward propagation for layer l
-		- Backward propagation for layer l
-		- Summary
-	- Video: Parameters vs Hyperparameters
-		- What are hyperparameters?
-		- Applied deep learning is a very empirical process
-	- Video: What does this have to with the brain?
-		- Forward and backward propagation
-	- Quiz: Key concepts on Deep Neural Networks
-	- Programming Assignment: Building your Deep Neural Network: Step by Step
-	- Programming Assignment: Deep Neural Network Application
+- Video: Deep L-layer neural network
+- Video: Forward Propagation in a Deep Network
+- Video: Getting your matrix dimensions right
+	- Vectorized implementation
+- Video: Why deep representations?
+	- Intuition about deep representation
+	- Circuit theory and deep learning
+- Video: Building blocks of deep neural networks
+	- Forward and backward functions
+- Video: Forward and Backward Propagation
+	- Forward propagation for layer l
+	- Backward propagation for layer l
+	- Summary
+- Video: Parameters vs Hyperparameters
+	- What are hyperparameters?
+	- Applied deep learning is a very empirical process
+- Video: What does this have to with the brain?
+	- Forward and backward propagation
+- Quiz: Key concepts on Deep Neural Networks
+- Programming Assignment: Building your Deep Neural Network: Step by Step
+- Programming Assignment: Deep Neural Network Application
 
 Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
 1주차
 Practical aspects of Deep Learning
-	- Video: Train / Dev / Test sets
-	- Video: Bias / Variance
-	- Video: Basic Recipe for Machine Learning
-	- Video: Regularization
-	- Video: Why regularization reduces overfitting?
-	- Video: Dropout Regularization
-	- Video: Understanding Dropout
-	- Video: Other regularization methods
-	- Video: Normalizing inputs
-	- Video: Vanishing / Exploding Gradients
-	- Video: Weight Initialization for Deep Networks
-	- Video: Numerical approximation of gradients
-	- Video: Gradient checking
-	- Video: Gradient Checking Implementation Notes
-	- Quiz: Practical aspects of deep learning
-	- Programming Assignment: Initialization
-	- Programming Assignment: Regularization
-	- Programming Assignment: Gradient Checking
-	- Video: Yoshua Bengio Interview
+- Video: Train / Dev / Test sets
+- Video: Bias / Variance
+- Video: Basic Recipe for Machine Learning
+- Video: Regularization
+- Video: Why regularization reduces overfitting?
+- Video: Dropout Regularization
+- Video: Understanding Dropout
+- Video: Other regularization methods
+- Video: Normalizing inputs
+- Video: Vanishing / Exploding Gradients
+- Video: Weight Initialization for Deep Networks
+- Video: Numerical approximation of gradients
+- Video: Gradient checking
+- Video: Gradient Checking Implementation Notes
+- Quiz: Practical aspects of deep learning
+- Programming Assignment: Initialization
+- Programming Assignment: Regularization
+- Programming Assignment: Gradient Checking
+- Video: Yoshua Bengio Interview
 
 2주차
 Optimization algorithms
-	- Video: Mini-batch gradient descent
-	- Video: Understanding mini-batch gradient descent
-	- Video: Exponentially weighted averages
-	- Video: Understanding exponentially weighted averages
-	- Video: Bias correction in exponentially weighted averages
-	- Video: Gradient descent with momentum
-	- Video: RMSprop
-	- Video: Adam optimization algorithm
-	- Video: Learning rate decay
-	- Video: The problem of local optima
-	- Quiz: Optimization algorithms
-	- Programming Assignment: Optimization
-	- Video: Yuanqing Lin Interview
+- Video: Mini-batch gradient descent
+- Video: Understanding mini-batch gradient descent
+- Video: Exponentially weighted averages
+- Video: Understanding exponentially weighted averages
+- Video: Bias correction in exponentially weighted averages
+- Video: Gradient descent with momentum
+- Video: RMSprop
+- Video: Adam optimization algorithm
+- Video: Learning rate decay
+- Video: The problem of local optima
+- Quiz: Optimization algorithms
+- Programming Assignment: Optimization
+- Video: Yuanqing Lin Interview
 
 3주차
 Hyperparameter tuning, Batch Normalization and Programming Frameworks
-	- Video: Tuning process
-	- Video: Using an appropriate scale to pick hyperparameters
-	- Video: Hyperparameter tuning in practice: Pandas vs. Caviar
-	- Video: Normalizing activations in a network
-	- Video: Fitting Batch Norm into a Neural Network
-	- Video: Why does Batch Norm work?
-	- Video: Batch Norm at test time
-	- Video: Softmax Regression
-	- Video: Training a softmax classifier
-	- Video: Deep learning frameworks
-	- Video: Tensorflow
-	- Quiz: Hyperparameter tuning, Batch Normalization, Programming Frameworks
-	- Programming Assignment: Tensorflow
+- Video: Tuning process
+- Video: Using an appropriate scale to pick hyperparameters
+- Video: Hyperparameter tuning in practice: Pandas vs. Caviar
+- Video: Normalizing activations in a network
+- Video: Fitting Batch Norm into a Neural Network
+- Video: Why does Batch Norm work?
+- Video: Batch Norm at test time
+- Video: Softmax Regression
+- Video: Training a softmax classifier
+- Video: Deep learning frameworks
+- Video: Tensorflow
+- Quiz: Hyperparameter tuning, Batch Normalization, Programming Frameworks
+- Programming Assignment: Tensorflow
 
 Course 3: Structuring Machine Learning Projects
 1주차
 ML Strategy (1)
-	- Video: Why ML Stretegy
-	- Video: Orthogonalization
-	- Video: Single number evaluation metric
-	- Video: Satisficing and Optimizing metric
-	- Video: Train/dev/test distributions
-	- Video: Size of the dev and test sets
-	- Video: When to change dev/test sets and metrics
-	- Video: Why human-level performance?
-	- Video: Avoidable bias
-	- Video: Understanding human-level performance
-	- Video: Surpassing human-level performance
-	- Video: Improving your model performance
-	- Reading: Machine Learning flight simulator
-	- Quiz: Bird recognition in the city of Peacetopia (case study)
-	- Video: Andrej Karpathy Interview
+- Video: Why ML Stretegy
+- Video: Orthogonalization
+- Video: Single number evaluation metric
+- Video: Satisficing and Optimizing metric
+- Video: Train/dev/test distributions
+- Video: Size of the dev and test sets
+- Video: When to change dev/test sets and metrics
+- Video: Why human-level performance?
+- Video: Avoidable bias
+- Video: Understanding human-level performance
+- Video: Surpassing human-level performance
+- Video: Improving your model performance
+- Reading: Machine Learning flight simulator
+- Quiz: Bird recognition in the city of Peacetopia (case study)
+- Video: Andrej Karpathy Interview
 
 2주차
 ML Strategy (2)
-	- Video: Carrying out error analysis
-	- Video: Cleaning up incorrectly labeled data
-	- Video: Build your first system quickly, then iterate
-	- Video: Training and testing on different distributions
-	- Video: Bias and Variance with mismatched data distributions
-	- Video: Addressing data mismatch
-	- Video: Transfer Learning
-	- Video: Multi-task learning
-	- Video: What is end-to-end deep learning?
-	- Video: Whether to use end-to-end deep learning
-	- Quiz: Autonomous driving (case study)
-	- Video: Ruslan Salakhutdinov Interview
+- Video: Carrying out error analysis
+- Video: Cleaning up incorrectly labeled data
+- Video: Build your first system quickly, then iterate
+- Video: Training and testing on different distributions
+- Video: Bias and Variance with mismatched data distributions
+- Video: Addressing data mismatch
+- Video: Transfer Learning
+- Video: Multi-task learning
+- Video: What is end-to-end deep learning?
+- Video: Whether to use end-to-end deep learning
+- Quiz: Autonomous driving (case study)
+- Video: Ruslan Salakhutdinov Interview
 
 Course 4: Convolutional Neural Networks
 1주차
 Foundations of Convolutional Neural Networks
-	- Video: Computer Vision
-	- Video: Edge Detection Example
-	- Video: More Edge Detection
-	- Video: Padding
-	- Video: Strided Convolutions
-	- Video: Convolutions Over Volume
-	- Video: One Layer of a Convolution Network
-	- Video: Simple Convolution Network Example
-	- Video: Pooling Layers
-	- Video: CNN Example
-	- Video: Why Convolutions?
-	- Quiz: The basics of ConvNets
-	- Programming Assignment: Convolutional Model: step by step
-	- Programming Assignment: Convolutional Model: application
+- Video: Computer Vision
+- Video: Edge Detection Example
+- Video: More Edge Detection
+- Video: Padding
+- Video: Strided Convolutions
+- Video: Convolutions Over Volume
+- Video: One Layer of a Convolution Network
+- Video: Simple Convolution Network Example
+- Video: Pooling Layers
+- Video: CNN Example
+- Video: Why Convolutions?
+- Quiz: The basics of ConvNets
+- Programming Assignment: Convolutional Model: step by step
+- Programming Assignment: Convolutional Model: application
 
 2주차
 Deep Convolutional Models: Case Studies
-	- Video: Why look at case studies?
-	- Video: Classic Networks
-	- Video: ResNets
-	- Video: Why ResNets Work
-	- Video: Network in Network and 1x1 Convolutions
-	- Video: Inception Network Motivation
-	- Video: Inception Network
-	- Video: Using Open-Source Implementation
-	- Video: Transfer Learning
-	- Video: Data Augmentation
-	- Video: State of Computer Vision
-	- Quiz: Deep convolutional models
-	- Other: Keras Tutorial - The Happy House (not graded)
-	- Programming Assignment: Residual Networks
+- Video: Why look at case studies?
+- Video: Classic Networks
+- Video: ResNets
+- Video: Why ResNets Work
+- Video: Network in Network and 1x1 Convolutions
+- Video: Inception Network Motivation
+- Video: Inception Network
+- Video: Using Open-Source Implementation
+- Video: Transfer Learning
+- Video: Data Augmentation
+- Video: State of Computer Vision
+- Quiz: Deep convolutional models
+- Other: Keras Tutorial - The Happy House (not graded)
+- Programming Assignment: Residual Networks
 
 3주차
 Object Detection
-	- Video: Object Localization
-	- Video: Landmark Detection
-	- Video: Object Detection
-	- Video: Convolutional Implementation of Sliding Windows
-	- Video: Bounding Box Predictions
-	- Video: Intersection Over Union
-	- Video: Non-max Suppression
-	- Video: Anchor Boxes
-	- Video: YOLO algorithm
-	- Video: (Optional) Region Proposals
-	- Quiz: Detection algorithms
-	- Programming Assignments: Car Detection with YOLO v2
+- Video: Object Localization
+- Video: Landmark Detection
+- Video: Object Detection
+- Video: Convolutional Implementation of Sliding Windows
+- Video: Bounding Box Predictions
+- Video: Intersection Over Union
+- Video: Non-max Suppression
+- Video: Anchor Boxes
+- Video: YOLO algorithm
+- Video: (Optional) Region Proposals
+- Quiz: Detection algorithms
+- Programming Assignments: Car Detection with YOLO v2
 
 4주차
 Special Applications: Face Recognition & Neural Style Transfer
-	- Video: What is Face Recognition?
-	- Video: One Shot Learning
-	- Video: Siamese Network
-	- Video: Triplet Loss
-	- Video: Face Verification and Binary Classification
-	- Video: What is neural style transfer?
-	- Video: What are deep ConvNets learning?
-	- Video: Cost Function
-	- Video: Content Cost Function
-	- Video: Style Cost Function
-	- Video: 1D and 3D Generalizations
-	- Quiz: Special applications: Face Recognition & Neural Style Transfer
-	- Programming Assignment: Art Generation with Neural Style Transfer
-	- Programming Assignment: Face Recognition for the Happy House
+- Video: What is Face Recognition?
+- Video: One Shot Learning
+- Video: Siamese Network
+- Video: Triplet Loss
+- Video: Face Verification and Binary Classification
+- Video: What is neural style transfer?
+- Video: What are deep ConvNets learning?
+- Video: Cost Function
+- Video: Content Cost Function
+- Video: Style Cost Function
+- Video: 1D and 3D Generalizations
+- Quiz: Special applications: Face Recognition & Neural Style Transfer
+- Programming Assignment: Art Generation with Neural Style Transfer
+- Programming Assignment: Face Recognition for the Happy House
 
 Course 5: Sequence Models
 1주차
 Recurrent Neural Networks
-	- Video: Why Sequence Models
-	- Video: Notation
-	- Video: Recurrent Neural Network Model
-	- Video: Backpropagation through time
-	- Video: Different types of RNNs
-	- Video: Language model and sequence generation
-	- Video: Sampling novel sequences
-	- Video: Vanishing gradient with RNNs
-	- Video: Gated Recurrent Unit (GRU)
-	- Video: Long Short Term Memory (LSTM)
-	- Video: Bidirectional RNN
-	- Video: Deep RNNs
-	- Quiz: Recurrent Neural Networks
-	- Programming Assignment: Building a recurrent neural network - step by step
-	- Programming Assignment: Dinosaur Island - Character-Level Language Modeling
-	- Programming Assignment: Jazz Improvisation with LSTM
+- Video: Why Sequence Models
+- Video: Notation
+- Video: Recurrent Neural Network Model
+- Video: Backpropagation through time
+- Video: Different types of RNNs
+- Video: Language model and sequence generation
+- Video: Sampling novel sequences
+- Video: Vanishing gradient with RNNs
+- Video: Gated Recurrent Unit (GRU)
+- Video: Long Short Term Memory (LSTM)
+- Video: Bidirectional RNN
+- Video: Deep RNNs
+- Quiz: Recurrent Neural Networks
+- Programming Assignment: Building a recurrent neural network - step by step
+- Programming Assignment: Dinosaur Island - Character-Level Language Modeling
+- Programming Assignment: Jazz Improvisation with LSTM
 
 2주차
 Natural Language Processing & Word Embeddings
-	- Video: Word Representation
-		- Word Representation
-			- 1-hot representation
-				- Ex) I want a glass of orange juice.
-				- Ex) I want a glass of apple juice.
-		- Featurized representation: word embedding
-		- Visualizing word embeddings
-			- 300D → 2D (t-SNE)
-	- Video: Using Word Embeddings
-		- Named entity recognition example
-			- [Sally] [Johnson] [is] [an] [orange] [farmer]
-			- [Robert] [Lin] [is] [an] [apple] [farmer]
-		- Transfer learning and word embeddings
-			i. Learn word embeddings from large text corpus. (1-100B words)<br>(Or download pre-trained embedding online.)
-			ii. Transfer embedding to new task with smaller training set.<br>(Say, 100k words)
-			iii. Optional: Continue to finetune the word embeddings with new data.
-		- Relation to face encoding
-	- Video: Properties of word embeddings
-		- Analogies
-			- Man → Woman is King → Queen?
-		- Analogies using word vectors
-			- e_man - e_woman ≒ e_king - e_?
-			- Find word w: argmax_w sim(e_w, e_king - e_man + e_woman)
-				- e_man - e_woman ≒ e_king - e_w
-				- e_king - e_man + e_woman: 30\~75%
-		- Cosine Similarity
-			- Sim(e_w, e_king - e_man + e_woman)
-				- Sim(u, v) = (u.T * v) / (L2norm.u * L2norm.v)
-				- Ex) Man : Woman as Boy : Girl
-				- Ex2) Ottawa : Canada as Nairobi : Kenya
-				- Ex3) Big : Bigger as Tall : Taller
-				- Ex4) Yen : Japan as Ruble : Russia
-	- Video: Embedding matrix
-		- Embedding matrix
-			- In practice, use specialized function to look up an embedding.
-	- Video: Learning word embeddings
-		- Neural language model
-		- Other context/target pairs
-			- Ex) I want a glass of orange juice to go along with my cereal.
-			- A glass of orange: context
-				- Last 4 words
-				- 4 words on left & right
-				- Last 1 word
-				- Nearby 1 word
-				- Skipgram
-			- Juice: target
-	- Video: Word2Vec
-		- Skipgrams
-			- Ex) I want a glass of orange juice to go along with my cereal.
-				- Context
-					- orange
-				- Target
-					- Juice
-					- Glass
-					- My
-					- …
-		- Model
-			- Vocab size = 10,000k
-			- Context c ("orange") [6257] → Target t ("juice") [4834]
-				- X → Y
-			- O_c → E → e_c → O(softmax) → y_hat
-		- Problems with softmax classification
-			- Hierarchical softmax
-			- How to xample the context c?
-				- The, of, a, and, to, …
-				- Orange, apple, durian, ... 
-	- Video: Negative Sampling
-		- Defining a new learning problem
-			- Ex) I want a glass of orange juice to go along with my cereal.
-			- Context	Word	Target
-			Orange	Juice	1
-			Orange	King	0
-			Orange	Book	0
-			Orange	The	0
-			Orange	Of	0
-			- K = 5\~20 for smaller datasets
-			- K = 2\~5 for large dataset
-		- Model
-		- Selecting negative examples
-	- Video: GloVe word vectors
+- Video: Word Representation
+	- Word Representation
+		- 1-hot representation
+			- Ex) I want a glass of orange juice.
+			- Ex) I want a glass of apple juice.
+	- Featurized representation: word embedding
+	- Visualizing word embeddings
+		- 300D → 2D (t-SNE)
+- Video: Using Word Embeddings
+	- Named entity recognition example
+		- [Sally] [Johnson] [is] [an] [orange] [farmer]
+		- [Robert] [Lin] [is] [an] [apple] [farmer]
+	- Transfer learning and word embeddings
+		i. Learn word embeddings from large text corpus. (1-100B words)<br>(Or download pre-trained embedding online.)
+		ii. Transfer embedding to new task with smaller training set.<br>(Say, 100k words)
+		iii. Optional: Continue to finetune the word embeddings with new data.
+	- Relation to face encoding
+- Video: Properties of word embeddings
+	- Analogies
+		- Man → Woman is King → Queen?
+	- Analogies using word vectors
+		- e_man - e_woman ≒ e_king - e_?
+		- Find word w: argmax_w sim(e_w, e_king - e_man + e_woman)
+			- e_man - e_woman ≒ e_king - e_w
+			- e_king - e_man + e_woman: 30\~75%
+	- Cosine Similarity
+		- Sim(e_w, e_king - e_man + e_woman)
+			- Sim(u, v) = (u.T * v) / (L2norm.u * L2norm.v)
+			- Ex) Man : Woman as Boy : Girl
+			- Ex2) Ottawa : Canada as Nairobi : Kenya
+			- Ex3) Big : Bigger as Tall : Taller
+			- Ex4) Yen : Japan as Ruble : Russia
+- Video: Embedding matrix
+	- Embedding matrix
+		- In practice, use specialized function to look up an embedding.
+- Video: Learning word embeddings
+	- Neural language model
+	- Other context/target pairs
 		- Ex) I want a glass of orange juice to go along with my cereal.
-			- c, t
-			- X_ij = # times i (=t) appears in context of j (=c).
-			- X_ij = X_ji
-		- Model
-		- A note on the featurization view of word embeddings
-	- Video: Sentiment Classifications
-		- Sentiment classification problem
-			- Example (X → Y)
-				- The dessert is excellent. ★★★★☆
-				- Service was quite low. ★★☆☆☆
-				- Good for a quick meal, but nothing special. ★★★☆☆
-				- Completely lacking in good taste, good service, and good ambience. ★☆☆☆☆
-				- 10,000 → 100,000 words
-		- Simple sentiment classification model
-			- The dessert is excellent. ★★★★☆
-				- [8928] [2468] [4694] [3180]
-				- The
-					- o_8928 → E → e_8928
-				- Desert
-					- o_2468 → E → e_2468
-				- Is
-					- o_4694 → E → e_4694
-				- Excellent
-					- o_3180 → E → e_3180
-				- Average all up (300D) → O(softmax) (1\~5) → y_hat
-				- This model will have bad result with following sentence:
-					- Completely lacking in good taste, good service, and good ambience.
-					- Because the sentence contains 3 'good' words, it will have positive prediction.
-		- RNN for sentiment classification
-			- Many-to-One
-			- "not good"
-	- Video: Debiasing word embeddings
-		- The problem of bias in word embeddings
-			- Man : Woman as King : Queen
-			- Man : Computer_Programmer as Woman : Homemaker (X)
-			- Father : Doctor as Mother : Nurse (X)
-			- Word embeddings can reflect gender, ethnicity, age, sexual orientation, and other biases of the text used to train the model.
-		- Addressing bias in word embeddings
-			i. Identify bias direction.
-				- e_he - e_she
-				- e_male - e_female
+		- A glass of orange: context
+			- Last 4 words
+			- 4 words on left & right
+			- Last 1 word
+			- Nearby 1 word
+			- Skipgram
+		- Juice: target
+- Video: Word2Vec
+	- Skipgrams
+		- Ex) I want a glass of orange juice to go along with my cereal.
+			- Context
+				- orange
+			- Target
+				- Juice
+				- Glass
+				- My
 				- …
-				- Average all up
-			ii. Neutralize: For every word that is not definitional, project to get rid of bias.
-			iii. Equalize pairs.
-	- Quiz: Natural Language Processing & Word Embeddings
-	- Programming Assignment: Operations on Word Vectors - Debiasing
-	- Programming Assignment: Emojify
+	- Model
+		- Vocab size = 10,000k
+		- Context c ("orange") [6257] → Target t ("juice") [4834]
+			- X → Y
+		- O_c → E → e_c → O(softmax) → y_hat
+	- Problems with softmax classification
+		- Hierarchical softmax
+		- How to xample the context c?
+			- The, of, a, and, to, …
+			- Orange, apple, durian, ... 
+- Video: Negative Sampling
+	- Defining a new learning problem
+		- Ex) I want a glass of orange juice to go along with my cereal.
+		- Context	Word	Target
+		Orange	Juice	1
+		Orange	King	0
+		Orange	Book	0
+		Orange	The	0
+		Orange	Of	0
+		- K = 5\~20 for smaller datasets
+		- K = 2\~5 for large dataset
+	- Model
+	- Selecting negative examples
+- Video: GloVe word vectors
+	- Ex) I want a glass of orange juice to go along with my cereal.
+		- c, t
+		- X_ij = # times i (=t) appears in context of j (=c).
+		- X_ij = X_ji
+	- Model
+	- A note on the featurization view of word embeddings
+- Video: Sentiment Classifications
+	- Sentiment classification problem
+		- Example (X → Y)
+			- The dessert is excellent. ★★★★☆
+			- Service was quite low. ★★☆☆☆
+			- Good for a quick meal, but nothing special. ★★★☆☆
+			- Completely lacking in good taste, good service, and good ambience. ★☆☆☆☆
+			- 10,000 → 100,000 words
+	- Simple sentiment classification model
+		- The dessert is excellent. ★★★★☆
+			- [8928] [2468] [4694] [3180]
+			- The
+				- o_8928 → E → e_8928
+			- Desert
+				- o_2468 → E → e_2468
+			- Is
+				- o_4694 → E → e_4694
+			- Excellent
+				- o_3180 → E → e_3180
+			- Average all up (300D) → O(softmax) (1\~5) → y_hat
+			- This model will have bad result with following sentence:
+				- Completely lacking in good taste, good service, and good ambience.
+				- Because the sentence contains 3 'good' words, it will have positive prediction.
+	- RNN for sentiment classification
+		- Many-to-One
+		- "not good"
+- Video: Debiasing word embeddings
+	- The problem of bias in word embeddings
+		- Man : Woman as King : Queen
+		- Man : Computer_Programmer as Woman : Homemaker (X)
+		- Father : Doctor as Mother : Nurse (X)
+		- Word embeddings can reflect gender, ethnicity, age, sexual orientation, and other biases of the text used to train the model.
+	- Addressing bias in word embeddings
+		i. Identify bias direction.
+			- e_he - e_she
+			- e_male - e_female
+			- …
+			- Average all up
+		ii. Neutralize: For every word that is not definitional, project to get rid of bias.
+		iii. Equalize pairs.
+- Quiz: Natural Language Processing & Word Embeddings
+- Programming Assignment: Operations on Word Vectors - Debiasing
+- Programming Assignment: Emojify
 
 3주차
 Sequence Models & Attention Mechanism
-	- Video: Basic Models
-	- Video: Picking the most likely sentence
-	- Video: Beam Search
-	- Video: Refinements to Beam Search
-	- Video: Error Analysis in Beam Search
-	- Video: Blue Score (optional)
-	- Video: Attention Model Intuition
-	- Video: Attention Model
-	- Video: Speech Recognition
-	- Video: Trigger Word Detection
-	- Video: Conclusion and Thank You
-	- Quiz: Sequence Models & Attention Mechanism
-	- Programming Assignment: Neural Machine Translation with Attention
-	- Programming Assignment: Trigger Word Detection
+- Video: Basic Models
+- Video: Picking the most likely sentence
+- Video: Beam Search
+- Video: Refinements to Beam Search
+- Video: Error Analysis in Beam Search
+- Video: Blue Score (optional)
+- Video: Attention Model Intuition
+- Video: Attention Model
+- Video: Speech Recognition
+- Video: Trigger Word Detection
+- Video: Conclusion and Thank You
+- Quiz: Sequence Models & Attention Mechanism
+- Programming Assignment: Neural Machine Translation with Attention
+- Programming Assignment: Trigger Word Detection
