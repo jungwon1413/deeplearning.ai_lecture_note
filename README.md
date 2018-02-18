@@ -326,8 +326,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Video: Pieter Abbeel Interview
 
 
-3주차
-Shallow Neural Networks
+### 3주차
+#### Shallow Neural Networks
 - Video: Neural Networks Overview
 	- What is a Neural Network?
 - Video: Neural Network Representation
@@ -363,8 +363,8 @@ Shallow Neural Networks
 - Programming Assignment: Planar data classification with a hidden layer
 - Video: Ian Goodfellow Interview
 
-4주차
-Deep Neural Networks
+### 4주차
+#### Deep Neural Networks
 - Video: Deep L-layer neural network
 - Video: Forward Propagation in a Deep Network
 - Video: Getting your matrix dimensions right
@@ -387,9 +387,9 @@ Deep Neural Networks
 - Programming Assignment: Building your Deep Neural Network: Step by Step
 - Programming Assignment: Deep Neural Network Application
 
-Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
-1주차
-Practical aspects of Deep Learning
+## Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
+### 1주차
+#### Practical aspects of Deep Learning
 - Video: Train / Dev / Test sets
 - Video: Bias / Variance
 - Video: Basic Recipe for Machine Learning
@@ -410,8 +410,8 @@ Practical aspects of Deep Learning
 - Programming Assignment: Gradient Checking
 - Video: Yoshua Bengio Interview
 
-2주차
-Optimization algorithms
+### 2주차
+#### Optimization algorithms
 - Video: Mini-batch gradient descent
 - Video: Understanding mini-batch gradient descent
 - Video: Exponentially weighted averages
@@ -426,8 +426,8 @@ Optimization algorithms
 - Programming Assignment: Optimization
 - Video: Yuanqing Lin Interview
 
-3주차
-Hyperparameter tuning, Batch Normalization and Programming Frameworks
+### 3주차
+#### Hyperparameter tuning, Batch Normalization and Programming Frameworks
 - Video: Tuning process
 - Video: Using an appropriate scale to pick hyperparameters
 - Video: Hyperparameter tuning in practice: Pandas vs. Caviar
@@ -442,9 +442,9 @@ Hyperparameter tuning, Batch Normalization and Programming Frameworks
 - Quiz: Hyperparameter tuning, Batch Normalization, Programming Frameworks
 - Programming Assignment: Tensorflow
 
-Course 3: Structuring Machine Learning Projects
-1주차
-ML Strategy (1)
+## Course 3: Structuring Machine Learning Projects
+### 1주차
+#### ML Strategy (1)
 - Video: Why ML Stretegy
 - Video: Orthogonalization
 - Video: Single number evaluation metric
@@ -461,8 +461,8 @@ ML Strategy (1)
 - Quiz: Bird recognition in the city of Peacetopia (case study)
 - Video: Andrej Karpathy Interview
 
-2주차
-ML Strategy (2)
+### 2주차
+#### ML Strategy (2)
 - Video: Carrying out error analysis
 - Video: Cleaning up incorrectly labeled data
 - Video: Build your first system quickly, then iterate
@@ -476,9 +476,9 @@ ML Strategy (2)
 - Quiz: Autonomous driving (case study)
 - Video: Ruslan Salakhutdinov Interview
 
-Course 4: Convolutional Neural Networks
-1주차
-Foundations of Convolutional Neural Networks
+## Course 4: Convolutional Neural Networks
+### 1주차
+#### Foundations of Convolutional Neural Networks
 - Video: Computer Vision
 - Video: Edge Detection Example
 - Video: More Edge Detection
@@ -494,8 +494,8 @@ Foundations of Convolutional Neural Networks
 - Programming Assignment: Convolutional Model: step by step
 - Programming Assignment: Convolutional Model: application
 
-2주차
-Deep Convolutional Models: Case Studies
+### 2주차
+#### Deep Convolutional Models: Case Studies
 - Video: Why look at case studies?
 - Video: Classic Networks
 - Video: ResNets
@@ -511,8 +511,8 @@ Deep Convolutional Models: Case Studies
 - Other: Keras Tutorial - The Happy House (not graded)
 - Programming Assignment: Residual Networks
 
-3주차
-Object Detection
+###### 3주차
+#### Object Detection
 - Video: Object Localization
 - Video: Landmark Detection
 - Video: Object Detection
@@ -526,8 +526,8 @@ Object Detection
 - Quiz: Detection algorithms
 - Programming Assignments: Car Detection with YOLO v2
 
-4주차
-Special Applications: Face Recognition & Neural Style Transfer
+### 4주차
+#### Special Applications: Face Recognition & Neural Style Transfer
 - Video: What is Face Recognition?
 - Video: One Shot Learning
 - Video: Siamese Network
@@ -543,9 +543,9 @@ Special Applications: Face Recognition & Neural Style Transfer
 - Programming Assignment: Art Generation with Neural Style Transfer
 - Programming Assignment: Face Recognition for the Happy House
 
-Course 5: Sequence Models
-1주차
-Recurrent Neural Networks
+## Course 5: Sequence Models
+### 1주차
+#### Recurrent Neural Networks
 - Video: Why Sequence Models
 - Video: Notation
 - Video: Recurrent Neural Network Model
@@ -563,8 +563,8 @@ Recurrent Neural Networks
 - Programming Assignment: Dinosaur Island - Character-Level Language Modeling
 - Programming Assignment: Jazz Improvisation with LSTM
 
-2주차
-Natural Language Processing & Word Embeddings
+### 2주차
+#### Natural Language Processing & Word Embeddings
 - Video: Word Representation
 	- Word Representation
 		- 1-hot representation
@@ -695,8 +695,8 @@ Natural Language Processing & Word Embeddings
 - Programming Assignment: Operations on Word Vectors - Debiasing
 - Programming Assignment: Emojify
 
-3주차
-Sequence Models & Attention Mechanism
+###### 3주차
+#### Sequence Models & Attention Mechanism
 - Video: Basic Models
 - Video: Picking the most likely sentence
 - Video: Beam Search
