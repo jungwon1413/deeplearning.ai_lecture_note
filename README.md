@@ -511,7 +511,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Other: Keras Tutorial - The Happy House (not graded)
 - Programming Assignment: Residual Networks
 
-###### 3주차
+### 3주차
 #### Object Detection
 - Video: Object Localization
 - Video: Landmark Detection
@@ -695,7 +695,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Programming Assignment: Operations on Word Vectors - Debiasing
 - Programming Assignment: Emojify
 
-###### 3주차
+### 3주차
 #### Sequence Models & Attention Mechanism
 - Video: Basic Models
 - Video: Picking the most likely sentence
