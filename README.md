@@ -1,5 +1,6 @@
-
-
+# deeplearning.ai Lecture Note
+Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 자료입니다.
+(written by GITHUB_USERNAME)
 
 ## Course 1: Neural Networks and Deep Learning
 ### 1주차
