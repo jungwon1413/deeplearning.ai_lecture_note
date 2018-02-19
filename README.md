@@ -104,7 +104,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Video: Logistic Regression Cost Function
 	- Logistic Regression cost function
 		- y_hat = sigmoid(w^T·xi + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
-		- Given {(x1, y1), …, (x_m, y_m)}, want  y_hat_i ≒ yi
+		- Given {(x1, y1), …, (x_m, y_m)}, want  y_hat(i) ≒ yi
 		- Loss (error) function:
 			- L(y_hat, y) = 1/2·(y_hat - y)^2
 			- L(y_hat, y) = -(y log(y_hat) + (1-y) log(1 - y_hat))
@@ -113,12 +113,12 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- If y=0: L(y_hat, y) = -log(1 - y_hat)
 					- Want log(1 - y_hat) … want y_hat small.
 		- Cost function:
-			- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, yi)
-			- = -(1/m) ∑[1∽m]((yi·log(y_hat_i) + (1-yi)log(1 - y_hat_i)))
+			- J(w, b) = (1/m) ∑[1∽m](L(y_hat(i), yi)
+			- = -(1/m) ∑[1∽m]((yi·log(y_hat(i)) + (1-yi)log(1 - y_hat(i))))
 - Video: Gradient Descent
 	- Gradient Descent
 		- Recap: y_hat = sigmoid(w^T·xi + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
-		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, yi) = -(1/m) ∑[1∽m]((yi·log(y_hat_i) + (1-yi)log(1 - y_hat_i)))
+		- J(w, b) = (1/m) ∑[1∽m](L(y_hat(i), yi) = -(1/m) ∑[1∽m]((yi·log(y_hat(i)) + (1-yi)log(1 - y_hat(i))))
 		- Want to find w, b, that minimize J(w, b)
 		- w := w - alpha·(dJ(w) / dw)
 			- Alpha: learning rate
@@ -315,9 +315,9 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)<br>= y log(y_hat) + (1 - y) log(1 - y_hat)<br>= - L(y_hat, y)
 	- Cost on m examples
 		- log p(labels in training set) = log∏[1∽m]p(yi|xi)
-		- log p(…) = ∑[1∽m] log p(yi|xi)<br>(log p(yi|xi) = -L(y_hat_i|yi) )<br>= -∑[1∽m]L(y_hat_i|yi)
+		- log p(…) = ∑[1∽m] log p(yi|xi)<br>(log p(yi|xi) = -L(y_hat(i)|yi) )<br>= -∑[1∽m]L(y_hat(i)|yi)
 		- Cost (to minimize)
-			- J(w, b) = 1/m ∑[1∽m]L(y_hat_i|yi)
+			- J(w, b) = 1/m ∑[1∽m]L(y_hat(i)|yi)
 		- "Maximum likelihood estimation"
 - Quiz: Neural Network Basics
 - Reading: Deep Learning Honor Code
@@ -461,25 +461,207 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- From previous lecture ... (with some fixes)
 			- z[1] = W[1]·X + b[1]
 			- a[1] = ~sigmoid(z[1])~ g(z[1])
+				- where 'g' can be non-linear function
 			- z[2] = W[2]·A[1]) + b[2]
 			- a[2] = ~sigmoid(z[2])~ g(z[2])
+		- Different kinds of non-linear function
+			- sigmoid function:
+				- a = 1 / (a + e^-2)
+				- This goes between 0 and 1
+				- Centered at 0.5
+			- tanh function:
+				- a = tanh(z)
+				<br> (e^z - e^-z) / (e^z + e^-z)
+				- This goes between -1 and 1
+				- Centered at 0
+				- Almost always works better than sigmoid function
+			- ReLU function:
+				- a = max(0, z)
+				- ReLU: Rectified Linear Unit
+			- Leaky ReLU function:
+				- -0.x if less than 0, z if equal or greater than 0
+				- Common multiplier for negatives are 0.01
+		- There's various ways to use activation functions
+			- Examples
+			    - Use tanh for hidden Layers
+			    - Use sigmoid for output layer
+			    	- You want results to be within y∈{0, 1} range
 	- Pros and cons of activation functions
 - Video: Why do you need non-linear activation functions?
 	- Activation function
+		- Recall from last lecture,
+			- z[1] = W[1]·X + b[1]
+			- a[1] = ~g[1]\(z[1])~ z[1]
+				- g(z) = z
+				- It's "linear activation function"
+			- z[2] = W[2]·A[1]) + b[2]
+			- a[2] = ~g[2]\(z[2])~ z[2]
+		- Linear function calculation
+			- a[1] = z[1] = W[1]·X + b[1]
+			- a[2] = z[2] = W[2]·a[1] + b[2]
+			<br>= W[2]·(W[1]·X + b[1]) + b[2] where (W[1]·X + b) = a[1]
+			- (W[2]·W[1])·X + (W[2]·b[1] + b[2])
+				- W[2]·W[1] = W'
+				- W[2]·b[1] + b[2] = b'
+			- = W'·X + b
+			<br> where g(z) = z
+			- It's just a linear calculation, without any significant purpose.
 - Video: Derivatives of activation functions
 	- Sigmoid activation function
+		- d/dz·g(z): slope of ~g(x)~ g(z) at z
+		<br>= 1/(1 + e^-z) \* (1 - 1/(1 + e^-z))
+		<br>= g(z)(1 - g(z))
+		<br>= g'(z)
+		- Therefore, g'(z) = a·(1 - a)
+		- Some examples
+			- z=10, g(z)≒1
+				- d/dz·g(z) ≒ 1(1 - 1) ≒ 0
+			- z=-10, g(z)≒0
+				- d/dz·g(z) ≒ 0(1 - 0) ≒ 0
+			- z=0, g(z)≒1/2
+				- d/dz·g(z) ≒ 1/2(1 - 1/2) = 1/4
 	- Tanh activation function
+		- g(z) = tanh(z)
+		<br>= (e^z - e^-z) / (e^z + e^-z)
+		- d/dz·g(z): slope of g(z) at z
+		<br>= 1 - (tanh(z))^2
+		- a = g(z)
+		<br>g'(z) = 1 - a^2
+		- z=10, tanh(z)≒1
+			- g'(z) ≒ 0
+		- z=-10, tanh(z)≒-1
+			- g'(z) ≒ 0
+		- z=0, tanh(z)≒0
+			- g'(z) ≒ 1
 	- ReLU and Leaky ReLU
+		- ReLU
+			- g(z) = max(0, z)
+			- g'(z) =
+			<br>0 if z < 0
+			<br>1 if z ≥ 0
+			<br>~undefined if z=0~ (ignore this case)
+		- Leaky ReLU
+			- g(z) = max(0.01z, z)
+			- g'(z) =
+			<br>0.01 if z < 0
+			<br>1 if z ≥ 0
 - Video: Gradient Descent of Neural Networks
 	- Gradient descent for neural networks
+		- Parameters: W[1], b[1], W[2], b[2]
+		- Shapes
+			- W[1]: (n[1], n[0])
+			- b[1]: (n[1], 1)
+			- W[2]: (n[2], n[1])
+			- b[2]: (n[1], 1)
+		- Cost function: J(W[1], b[1], W[2], b[2])
+		<br>1/m·∑[1∽m]L(y_hat, y) (where y_hat = a[2])
+		- Gradient descent:
+			- Repeat following,
+				- Compute predicts (y_hat(i), i = 1, ..., m)
+				- dw[1] = dJ/dW[1]
+				- db[1] = ∂J/∂b[1]
+				- ...
+				- W[1] := W[1] - alpha·dW[1]
+				- b[1] := b[1] - alpha·db[1]
+				- ...
 	- Formulas for computing derivatives
+		- Forward propagation:
+			- z[1] = W[1]·X + b[1]
+			- A[1] = g[1]\(z[1])
+			- z[2] = W[2]·A[1] + b[2]
+			- A[2] = g[2]\(z[2]) = sigmoid(z[2])
+		- Backpropagation:
+			- dz[2] = A[2] - Y (from loss function)
+			- dW[2] = 1/m · dz[2] · A[1]^T
+			- db[2] = 1/m · np.sum(dz[2], axis=1, keepdims=True)
+				- axis=1: summing horizontally
+				- keepdims=True: prevents from 'rank 1 arrays'
+					- rank 1 array: (n[2], )
+					- This becomes (n[2], 1)
+			- dz[1] = W[2]^T · dz[2] \* g'[1]\(z[1])
+				- \*: element-wise product
+				- W[2]^T · dz[2] has (n[1], m) shape
+				- g'[1]\(z[1]) has (n[1], m) shape
+			- dW[1] = 1/m · dz[1] · X^T
+			- db[1] = 1/m · np.sum(dz[1], axis=1, keepdims=True)
 - Video: Backpropagation Intuition (optional)
 	- Computing gradients
+		- Logistic regression
+			- d/da · L(a, y)
+			<br>= -y·log(a) - (1-y)·log(1-a)
+			<br>= -y/a + (1-y)/(1-a)
+			<br>= da
+			- dz
+			<br>= a - y
+			<br>= da · g'(z) (where g(z) = sigmoid(z))
+			<br> ∂L/∂z = ∂L/∂a · da/dz
+				- da/dz
+				<br>= d/dz · g(z)
+				<br>= g'(z)
+				- "dz" = da
+			- dw = dz·x
+			- db = dz
 	- Neural network gradients
+		- Example
+			- Layer 2 has W[2], b[2] when forward propagate
+			- Layer 2 has dW[2], db[2] when backpropagate
+		- dz[2] = a[2] - y
+		- dW[2] = dz[2]·a[1]^T → "dw = dz·X"
+		- db[2] = dz[2]
+		- dz[1] = W[2]^T · dz[2]
+		<br>\* g'[1]\(z[1])
 	- Summary of gradient descent
+		- dz[2] = a[2] - y
+		- dW[2] = dz[2]·a[1]^T
+		- db[2] = dz[2]
+		- dz[1] = W[2]^T·dz[2] \* g'[1]\(z[1])
+		- dW[1] = dz[1]·X^T
+		- db[1] = dz[1]
+		- Vectorized Implementation (forward propagation)
+			- (by element) z[1] = w[1]·x + b[1]
+			- (by element) a[1] = g[1]\(z[1])
+			- z[1] = [z[1]\(1), z[1]\(2), ..., z[1]\(m)]
+			- z[1] = W[1]·X + b[1]
+			- A[1] = g[1]\(z[1])
+		- Vectorized Implentation (backpropagation, pseudo code)
+			- dZ[2] = A[2] - Y
+			- dW[2] = 1/m·dZ[2]·A[1]^T
+			- db[2] = 1/m·np.sum(dZ[2], axis=1, keepdims=True)
+			- dZ[1] = W[2]^T·dZ[2] \* g'[1]\(Z[1])
+				- (shape) dZ[1]: (n[1], m)
+				- (shape) W[2]^T·dZ[2]: (n[1], m)
+				- (shape) g'[1]\(Z[1]): (n[1], m)
+			- dW[1] = 1/m·dZ[1]·X^T
+			- db[1] = 1/m·np.sum(dZ[1], axis=1, keepdims=True)
 - Video: Random Initialization
 	- What happens if you initialize weights to zero?
+		- W[1] =
+		<br>[0 0
+		<br>0 0]
+		- b[1] =
+		<br>[0
+		<br>0]
+		- a1[1] = a2[1]
+		- dz1[1] = dz2[1]
+		- W[2] = [0 0]
+		- "Symmetric"
+		- W[1] := W[1] - alpha·dW
+			- Resulting that the 1st row will be equal to the 2nd row
+			- Thus, it's same as having 1 neuron
 	- Random initialization
+		- W[1] = np.random.randn((2,2)) \* 0.01
+			- Generates 'gaussian random variable'
+			- 0.01 is multiplied to produce very small number to initiate
+				- Why not 100?
+					- This will result sigmoid/tanh function to be extremely large value
+					- Having large value weight will result slow learning rate
+				- Sometimes, there can be better value than 0.01
+					- However, if you train very DEEP neural network, you might want to change this value
+				- However, 0.01 will probably work OK
+		- b[1] = np.zeros((2,1))
+			- b does not have the symmetry problem
+		- W[2] = np.random.randn((1,2)) \* 0.01
+		- b[2] = 0 (zero initialization)
 - Quiz: Shallow Neural Networks
 - Programming Assignment: Planar data classification with a hidden layer
 - Video: Ian Goodfellow Interview
