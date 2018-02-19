@@ -331,15 +331,116 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 #### Shallow Neural Networks
 - Video: Neural Networks Overview
 	- What is a Neural Network?
+		- Single Neuron Computation
+			- z = W^T·x + b
+				- z becomes dz when backpropagate
+			- a = sigmoid(z)
+				- a becomes dz when backpropagate
+			- L(a,y)
+		- Multiple Neuron Computation
+			- z[1] = W[1]·x + b[1]
+			- a[1] = sigmoid(z[1])
+				- Calculate dw[1] & db[1]
+			- z[2] = W[2]·a[1] + b[2]
+				- = dz[2]
+			- a[2] = sigmoid(z[2])
+			- L(a[2], y)
 - Video: Neural Network Representation
 	- Neural Network Representation
+		- x1, x2, x3, ...: Input layer
+		- Layer with Computational Neurons: Hidden layer
+		- Layer with making result: Output layer
+		- a[0] = X (Input layer is usually 0th layer)
+			- Count from first hidden layer to last hidden layer: number of layers
+		- a[1] = [a1[1], a2[1], a3[1], a4[1], ...]
+			- Has W[1] & b[1] values to compute
+				- If W[1] has (4, 3): 4 neurons at 1st layer & 3 input values
+				- If b[1] has (4, 1): 4 neurons at 1st layer
+		- a[2]: Sum all up at output layer
+			- Has W[2] & b[2] values (assuming it's 2 layer neural network)
+				- If W[2] has (1, 4): 1 neuron at 2nd layer & 4 inputs from previous layer (1st layer)
+				- If b[2] has (1, 1): 1 neuron at 2nd layer
+		- If 2 layer network,
+			- y_hat = a[2]
+			- "y_hat = a"
 - Video: Computing a Neural Network's Output
 	- Neural Network Representation
+		- Single Neural Network (1 neuron)
+			- z = w^T·x + b
+			- a = sigmoid(z)
+		- Multi Neural Network (many neurons)
+			- 1st cell
+				- z1[1] = w1[1]^T·x + b1[1]
+				- a1[1] = sigmoid(z1[1])
+			- 2nd cell
+				- z2[1] = w2[1]^T·x + b2[1]
+				- a2[1] = sigmoid(z2[1])
+			- And so on (for rest of the remaining cells)
+			- W[1] = [w1[1], w2[1], w3[1], ...]
+			- X = [x1, x2, x3, ...]
+			- b[1] = [b1[1], b2[1], b3[1], ...]
+			- Then we need to calculate z[1]
+				- z[1] = [z1[1], z2[1], z3[1], ...]
+			- To sum up
+				- z[1] = W[1]^T·x + b[1]
+			- a[1] = [a1[1], a2[1], a3[1], ...]
+				- = sigmoid(z[1])
 	- Neural Network Representation learning
+		- Assuming there's single layer NN which has 3 inputs, 4 neurons, and 1 output
+			- x = a[0]
+			- z[1] = W[1]·x + b[1]
+				- (4,1) = (4,3)·(3,1) + (4,1)
+			- a[1] = sigmoid(z[1])
+				- (4,1) = (4,1)
+			- z[2] = W[2]·a[1] + b[2]
+				- (1,1) = (1,4)·(4,1) + (1,1)
+			- a[2] = sigmoid(z[2])
+				- (1,1) = (1,1)
 - Video: Vectorizing across multiple examples
 	- Vectorizing across multiple examples
+		- From previous lecture...
+			- z[1] = W[1]·x + b[1]
+			- a[1] = sigmoid(z[1])
+			- z[2] = W[2]·a[1] + b[2]
+			- a[2] = sigmoid(z[2])
+		- x → a[2] = y_hat
+		- x(1) → a[2]\(1) = y_hat(1)
+		- x(2) → a[2]\(2) = y_hat(2)
+		- x(3) → a[2]\(3) = y_hat(3)
+		- And so on... until,
+		- x(m) → a[2]\(m) = y_hat(m)
+			- a[2]\(i)
+				- [2]: layer 2
+				- (i): example i
+		- We can compute values by this way:
+			- for i = to m:
+				- z[1]\(i) = W[1]·x(i) + b[1]
+				- a[1]\(i) = sigmoid(z[1]\(i))
+				- z[2]\(i) = W[2]·a[1]\(i) + b[2]
+				- a[2]\(i) = sigmoid(z[2]\(i))
+		- X = [x(1), x(2), x(3), ..., x(m)] \(and it has (nx, m) shape)
+		- Then we can use vectorized method
+			- z[1] = W[1]·X + b[1]
+				- z[1] = [z[1]\(1), z[1]\(2), z[1]\(3), ..., z[1]\(m)]
+				- Shape: (training examples, hidden units)
+			- A[1] = sigmoid(z[1])
+				- A[1] = [a[1]\(1), a[1]\(2), a[1]\(3), ..., a[1]\(m)]
+				- Shape: (training examples, hidden units)
+			- z[2] = W[2]·A[1] + b[2]
+			- A[2] = sigmoid(z[2])
 - Video: Explanation for Vectorized Implementation
 	- Justification for vectorized implementation
+		- Example
+			- z[1]\(1) = W[1]·x(1) + ~b[1]~ 0 (Just to simplify the calculation)
+			- z[1]\(2) = W[1]·x(2) + ~b[1]~ 0 (Same as above)
+			- z[1]\(3) = W[1]·x(3) + ~b[1]~ 0 (Same as above)
+			- W[1]·x(1): Will have (training examples, 1) shape (1st column or feature)
+			- W[1]·x(2): Will have (training examples, 1) shape (2nd column or feature)
+			- W[1]·x(3): Will have (training examples, 1) shape (3rd column or feature)
+			- Then, it can be expressed as following:
+				- W[1]·X = W[1]·[x(1), x(2), x(3), ...] \(training examples)
+				<br>= [z[1]\(1), z[1]\(2), z[1]\(3), ..., z[1]\(m)]
+				<br>= z[1]
 	- Recap of vectorizing across multiple examples
 - Video: Activation Functions
 	- Activation functions
