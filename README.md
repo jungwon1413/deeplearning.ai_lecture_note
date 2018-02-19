@@ -103,8 +103,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- If z large negative number,<br> sigmoid(z) = 1 / (1 + e^(-z)) ≒ 1 / (1+Big_num) ≒ 0
 - Video: Logistic Regression Cost Function
 	- Logistic Regression cost function
-		- y_hat = sigmoid(w^T·x_i + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
-		- Given {(x_1, y_1), …, (x_m, y_m)}, want  y_hat_i ≒ y_i
+		- y_hat = sigmoid(w^T·xi + b), where sigmoid(z_i) = 1 / (1 + e^-z_i))
+		- Given {(x1, y1), …, (x_m, y_m)}, want  y_hat_i ≒ yi
 		- Loss (error) function:
 			- L(y_hat, y) = 1/2·(y_hat - y)^2
 			- L(y_hat, y) = -(y log(y_hat) + (1-y) log(1 - y_hat))
@@ -113,12 +113,12 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- If y=0: L(y_hat, y) = -log(1 - y_hat)
 					- Want log(1 - y_hat) … want y_hat small.
 		- Cost function:
-			- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i)
-			- = -(1/m) ∑[1∽m]((y_i·log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+			- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, yi)
+			- = -(1/m) ∑[1∽m]((yi·log(y_hat_i) + (1-yi)log(1 - y_hat_i)))
 - Video: Gradient Descent
 	- Gradient Descent
-		- Recap: y_hat = sigmoid(w^T·x_i + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
-		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, y_i) = -(1/m) ∑[1∽m]((y_i·log(y_hat_i) + (1-y_i)log(1 - y_hat_i)))
+		- Recap: y_hat = sigmoid(w^T·xi + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
+		- J(w, b) = (1/m) ∑[1∽m](L(y_hat_i, yi) = -(1/m) ∑[1∽m]((yi·log(y_hat_i) + (1-yi)log(1 - y_hat_i)))
 		- Want to find w, b, that minimize J(w, b)
 		- w := w - alpha·(dJ(w) / dw)
 			- Alpha: learning rate
@@ -197,16 +197,16 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Z = wTx + b
 		- y_hat = a = sigmoid(z)
 		- L(a, y) = -(y log(a) + (1 - y) log(1 - a))
-		- For x_1, w_1, x_2, w_2, b
-			- Z = w_1·x_1 + w_2·x_2 + b → y_hat = a = sigmoid(z) → L(a, y)
+		- For x1, w1, x2, w2, b
+			- Z = w1·x1 + w2·x2 + b → y_hat = a = sigmoid(z) → L(a, y)
 	- Logistic regression derivatives
 		- L(a, y)<br>→ dL(a, y)/da<br>= "da"<br>= -y/a + (1-y)/(1-a)<br>→ "dz"<br>= dL/dz<br>= dL(a, y)/dz<br>= a - y<br>= dL/da·da/dz<br>= dL/da·a(1-a)
-		- ∂L/∂w_1 = "dw_1" = x_1·dz
-		- dw_2 = x_2·dz
+		- ∂L/∂w1 = "dw1" = x1·dz
+		- dw2 = x2·dz
 		- db = dz
 		- In result,
-			- w_1 := w_1 - alpha·dw_1
-			- w_2 := w_2 - alpha·dw_2
+			- w1 := w1 - alpha·dw1
+			- w2 := w2 - alpha·dw2
 			- b := b - alpha·db
 - Video: Gradient Descent on m Examples
 	- Logistic regression on m examples
@@ -245,7 +245,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- v\*\*2
 	- Logistic regression derivatives
 		- dw = np.zeros((n_x, 1))
-		- dw += x_i·dz_i
+		- dw += xi·dz_i
 		- dw /= m
 - Video: Vectorizing Logistic Regression
 	- Vectorizing Logistic Regression
@@ -314,10 +314,10 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- If y = 0: p(y|x) = y_hat0 (1 - y_hat)1<br>=  1 x (1 - y_hat) = 1 - y_hat
 			- Log p(y|x) = log(y_hat) (1 - y_hat)(1-y)<br>= y log(y_hat) + (1 - y) log(1 - y_hat)<br>= - L(y_hat, y)
 	- Cost on m examples
-		- log p(labels in training set) = log∏[1∽m]p(y_i|x_i)
-		- log p(…) = ∑[1∽m] log p(y_i|x_i)<br>(log p(y_i|x_i) = -L(y_hat_i|y_i) )<br>= -∑[1∽m]L(y_hat_i|y_i)
+		- log p(labels in training set) = log∏[1∽m]p(yi|xi)
+		- log p(…) = ∑[1∽m] log p(yi|xi)<br>(log p(yi|xi) = -L(y_hat_i|yi) )<br>= -∑[1∽m]L(y_hat_i|yi)
 		- Cost (to minimize)
-			- J(w, b) = 1/m ∑[1∽m]L(y_hat_i|y_i)
+			- J(w, b) = 1/m ∑[1∽m]L(y_hat_i|yi)
 		- "Maximum likelihood estimation"
 - Quiz: Neural Network Basics
 - Reading: Deep Learning Honor Code
@@ -441,9 +441,28 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- W[1]·X = W[1]·[x(1), x(2), x(3), ...] \(training examples)
 				<br>= [z[1]\(1), z[1]\(2), z[1]\(3), ..., z[1]\(m)]
 				<br>= z[1]
+				- So, z[1] = W[1]·X + b[1]
 	- Recap of vectorizing across multiple examples
+		- 1st method (non-vectorized)
+			- for i=1 to m:
+				- z[1]\(i) = W[1]·x(i) + b[1]
+				- a[1]\(i) = sigmoid(z[1]\(i))
+				- z[2]\(i) = W[2]·a[1]\(i) + b[2]
+				- a[2]\(i) = sigmoid(z[2]\(i))
+		- 2nd method (vectorized)
+			- z[1] = W[1]·X + b[1]
+				- X: A[0] \(since x = a[0])
+				- same as W[1]·A[0] + b[1]
+			- a[1] = sigmoid(z[1])
+			- z[2] = W[2]·A[1]) + b[2]
+			- a[2] = sigmoid(z[2])
 - Video: Activation Functions
 	- Activation functions
+		- From previous lecture ... (with some fixes)
+			- z[1] = W[1]·X + b[1]
+			- a[1] = ~sigmoid(z[1])~ g(z[1])
+			- z[2] = W[2]·A[1]) + b[2]
+			- a[2] = ~sigmoid(z[2])~ g(z[2])
 	- Pros and cons of activation functions
 - Video: Why do you need non-linear activation functions?
 	- Activation function
