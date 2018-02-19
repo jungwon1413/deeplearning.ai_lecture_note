@@ -340,7 +340,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- a becomes dz when backpropagate
 			- L(a,y)
 		- Multiple Neuron Computation
-			- z[1] = W[1]·x + b[1]
+			- z[1] = w[1]·x + b[1]
 			- a[1] = sigmoid(z[1])
 				- Calculate dw[1] & db[1]
 			- z[2] = W[2]·a[1] + b[2]
@@ -390,7 +390,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Neural Network Representation learning
 		- Assuming there's single layer NN which has 3 inputs, 4 neurons, and 1 output
 			- x = a[0]
-			- z[1] = W[1]·x + b[1]
+			- z[1] = w[1]·x + b[1]
 				- (4,1) = (4,3)·(3,1) + (4,1)
 			- a[1] = sigmoid(z[1])
 				- (4,1) = (4,1)
@@ -401,7 +401,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Video: Vectorizing across multiple examples
 	- Vectorizing across multiple examples
 		- From previous lecture...
-			- z[1] = W[1]·x + b[1]
+			- z[1] = w[1]·x + b[1]
 			- a[1] = sigmoid(z[1])
 			- z[2] = W[2]·a[1] + b[2]
 			- a[2] = sigmoid(z[2])
@@ -416,7 +416,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- (i): example i
 		- We can compute values by this way:
 			- for i = to m:
-				- z[1]\(i) = W[1]·x(i) + b[1]
+				- z[1]\(i) = w[1]·x(i) + b[1]
 				- a[1]\(i) = sigmoid(z[1]\(i))
 				- z[2]\(i) = W[2]·a[1]\(i) + b[2]
 				- a[2]\(i) = sigmoid(z[2]\(i))
@@ -433,12 +433,12 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 - Video: Explanation for Vectorized Implementation
 	- Justification for vectorized implementation
 		- Example
-			- z[1]\(1) = W[1]·x(1) + ~b[1]~ 0 (Just to simplify the calculation)
-			- z[1]\(2) = W[1]·x(2) + ~b[1]~ 0 (Same as above)
-			- z[1]\(3) = W[1]·x(3) + ~b[1]~ 0 (Same as above)
-			- W[1]·x(1): Will have (training examples, 1) shape (1st column or feature)
-			- W[1]·x(2): Will have (training examples, 1) shape (2nd column or feature)
-			- W[1]·x(3): Will have (training examples, 1) shape (3rd column or feature)
+			- z[1]\(1) = w[1]·x(1) + ~b[1]~ 0 (Just to simplify the calculation)
+			- z[1]\(2) = w[1]·x(2) + ~b[1]~ 0 (Same as above)
+			- z[1]\(3) = w[1]·x(3) + ~b[1]~ 0 (Same as above)
+			- w[1]·x(1): Will have (training examples, 1) shape (1st column or feature)
+			- w[1]·x(2): Will have (training examples, 1) shape (2nd column or feature)
+			- w[1]·x(3): Will have (training examples, 1) shape (3rd column or feature)
 			- Then, it can be expressed as following:
 				- W[1]·X = W[1]·[x(1), x(2), x(3), ...] \(training examples)
 				<br>= [z[1]\(1), z[1]\(2), z[1]\(3), ..., z[1]\(m)]
@@ -447,7 +447,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Recap of vectorizing across multiple examples
 		- 1st method (non-vectorized)
 			- for i=1 to m:
-				- z[1]\(i) = W[1]·x(i) + b[1]
+				- z[1]\(i) = w[1]·x(i) + b[1]
 				- a[1]\(i) = sigmoid(z[1]\(i))
 				- z[2]\(i) = W[2]·a[1]\(i) + b[2]
 				- a[2]\(i) = sigmoid(z[2]\(i))
@@ -671,17 +671,123 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 ### 4주차 (Week 4)
 #### Deep Neural Networks
 - Video: Deep L-layer neural network
+	- What is a deep neural network?
+		- logistic regression (1 layer NN)
+			- Input, single neuron, and output
+			- This is an example of "shallow" network
+		- 1 hidden layer
+			- Input, 1 layer with multiple neurons, and output
+		- 2 hidden layer (2 layer NN)
+			- Input, 2 layers with multiple neurons (both), and output
+		- 5 hidden layer
+			- Input, 5 layers with multiple neurons, and output
+			- People usually call "deep" neural network when a network has more than 5 layers
+	- Deep neural network notation
+		- *l* = 4 (number of layers)
+			- 'This NN has 4 layers'
+		- n[*l*] = number of units in layer *l*
+		- Input layers are 'layer 0'
+			- x = a[0]
+		- layer count includes hidden & output layers
+		- a[*l*] = activations in layer *l*
+			- a[*l*] = g[*l*]\(z[*l*])
+		- W[*l*] = weights for z[*l*]
 - Video: Forward Propagation in a Deep Network
+	- x:
+		- z[1] = w[1]·x + b[1]
+			- = w[1]·a[0] + b[1]
+		- a[1] = g[1]\(z[1])
+		- z[2] = w[2]·a[1] + b[2]
+		- a[2] = g[2]\(z[2])
+		- ...
+	- z[*l*] = W[*l*]·a[*l* - 1] + b[*l*]
+		- Vectorized: Z[*l*] = W[*l*]·A[*l* - 1] + b[*l*]
+			- A[0] = X
+	- a[*l*] = g[*l*]\(z[*l*])
+		- Vectorized: A[*l*] = g[*l*]\(Z[*l*])
+	- Vectorized method
+		- Z[1] = W[1]·X + b[1]
+			- = W[1]·A[0] + b[1]
+		- A[1] = g[1]\(z[1])
+		- Z[2] = W[2]·A[1] + b[1]
+		- A[2] = g[2]\(Z[2])
+		- ...
+		- Y_hat = g(Z[4]) = A[4]
 - Video: Getting your matrix dimensions right
+	- Parameters W[*l*] and b[*l*]
+		- z[1] = w[1]·x + b[1]
+			- (shape) z[1]: (n[1], 1)
+			- (shape) w[1]: (n[1], n[0])
+			- (shape) x: (n[0], 1)
+			- (shape) b[1]: (n[1], 1)
+		- W[*l*]: (n[*l*], n[*l* - 1])
+		- b[*l*]: (n[*l*], 1)
+		- dW[*l*]: (n[*l*], n[*l* - 1])
+		- db[*l*]: (n[*l*], 1)
 	- Vectorized implementation
+		- Z[1] = W[1]·X + b[1]
+			- (shape) Z[1]: (n[1], m)
+			- (shape) W[1]: (n[1], n[0])
+			- (shape) X: (n[0], m)
+			- (shape) b[1]: (n[1], 1) → (n[1], m)
+		- z[*l*], a[*l*]: (n[*l*], 1)
+		- Z[*l*], A[*l*]: (n[*l*], m)
+			- l=0, A[0] = X = (n[0], m)
+		- dZ[*l*], dA[*l*]: (n[*l*], m)
 - Video: Why deep representations?
 	- Intuition about deep representation
+		- Earlier layer: represent "simple" features (ex: edge)
+		- Later layer: represent "complex" features (ex: human face, fur details, etc.)
+		- - Audio:
+		<br>low level audio waveform features (maybe)
+		<br>→ Phonemes (C A T)
+		<br>→ Words
+		<br>→ Sentence/Phrases
 	- Circuit theory and deep learning
+		- Informally: There are functions you can compute with a "small" L-layer deep neural network that shallower networks require exponentially more hidden units to compute.
+		- y = x1 XOR x2 XOR x3 XOR ... XOR xn
+			- O(log n)
+		- You can compute anything with a "single" layer,
+			- But you will have exponentially large number of neurons, compared to multi-layer neural network
+			- 2^(n-1) neurons will be required
+			- O(2^n)
 - Video: Building blocks of deep neural networks
 	- Forward and backward functions
+		- Layer *l*: W[*l*], b[*l*]
+		- Forward: Input a[*l* - 1], Output a[*l*]
+			- z[*l*] = W[*l*]·a[*l* - 1] + b[*l*]
+				- Output a[*l*]
+				- Cache z[*l*]
+			- a[*l*] = g[*l*]\(z[*l*])
+		- Backward: Input da[*l*], Output da[*l* - 1]
+			- da[*l*]: Cache z[*l*]
+			- da[*l* - 1]: dW[*l*], db[*l*]
+		- W[*l*] := W[*l*] - alpha·dW[*l*]
+		- b[*l*] := b[*l*] - alpha·db[*l*]
+	- (Check slide for more details)
 - Video: Forward and Backward Propagation
-	- Forward propagation for layer l
-	- Backward propagation for layer l
+	- Forward propagation for layer *l*
+		- Input a[*l* - 1]
+		- Output a[*l*], cache (z[*l*])
+			- z[*l*]: W[*l*], b[*l*]
+		- z[*l*] = W[*l*]·a[*l* - 1] + b[*l*]
+		- a[*l*] = g[*l*]\(z[*l*])
+		- Vectorized:
+			- Z[*l*] = W[*l*]·A[*l* - 1] + b[*l*]
+			- A[*l*] = g[*l*]\(Z[*l*])
+	- Backward propagation for layer *l*
+		- Input da[*l*]
+		- Output da[*l* - 1], dW[*l*], db[*l*]
+		- dz[*l*] = da[*l*] \* g'[*l*]\(z[*l*])
+		- dW[*l*] = dz[*l*]·a[*l* - 1]
+		- db[*l*] = dz[*l*]
+		- da[*l* - 1] = W[*l*]^T·dz[*l*]
+			- dz[*l*] = W[*l* + 1]^T·dz[*l* + 1] \* g'[*l*]\(z[*l*])
+		- Vectorized:
+			- dZ[*l*] = dA[*l*] \* g'[*l*]\(Z[*l*])
+			- dW[*l*] = 1/m·dZ[*l*]·A[*l* - 1]^T
+			- db[*l*] = 1/m·(dZ[*l*], axis=1, keepdims=True)
+			- dA[*l* - 1] = W[*l*]^T·dZ[*l*]
 	- Summary
 - Video: Parameters vs Hyperparameters
 	- What are hyperparameters?
