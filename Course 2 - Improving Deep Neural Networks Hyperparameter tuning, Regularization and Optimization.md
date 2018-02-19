@@ -2,6 +2,54 @@
 ### 1주차 (Week 1)
 #### Practical aspects of Deep Learning
 - Video: Train / Dev / Test sets
+	- Applied ML is a highly iterative process
+		- \# Layers
+		- \# hidden units
+		- learning rates
+		- activation functions
+		- Etc.
+		- Iteration of 'Idea, Code, and Experiment'
+		- Deep learning has found success in ...
+			- NLP
+			- Vision
+			- Speech
+			- Structured Data
+				- Ads
+				- Search Engine
+				- Security
+				- Logistics
+					- Ex) Figure out where to drop the passenger
+		- Someone from NLP might enter Vision field, and someone from Speech field might enter Ads, etc.
+		- Intuitions from one domain applications do not usually transfer to other application areas
+		- These things depends on amount of data, computer configurations, GPU/CPU, etc.
+		- Even the most experienced deep learning people find it almost impossible to correctly guess the best choice of the hyperparameters at the very first time.
+		- So, you just need to do iterative process to figure out these things. (hyperparameters)
+			- Therefore, how quickly you can go through means how efficiently you can go around the cycle.
+	- Train/dev/test sets
+		- Data
+			- Training set
+			- Hold-out cross validation
+			<br>(Development Set, a.k.a. "dev" set)
+			- Test set
+		- Previous Era:
+			- 70/30% (Training/Test)
+			- 60/20/20% (Training/Dev/Test)
+			- ~ 10,000 examples in total
+		- Big Data:
+			- Usually have around 1,000,000 examples
+			- 10,000 is more than enough to test out things for both dev/test sets
+			- 98/1/1% or 99.5/.25/.25% works in these days
+			<br>(or 99.5/.4/.1%, etc.)
+	- Mismatched train/test distribution
+		- Example
+			- Training: Cat picture from webpages
+			- Dev/Test sets: Cat pictures from users using your app
+			- Doesn't come from same distribution!
+			- Make sure dev & test sets come from the same distribution
+				- This way, the progress on your machine learning algorithm will be faster.
+		- Not having a test set might be Okay! (Only dev set.)
+			- Sometimes, it's training/"test"
+			<br>(train/test → train/dev)
 - Video: Bias / Variance
 - Video: Basic Recipe for Machine Learning
 - Video: Regularization
