@@ -122,13 +122,13 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Recap: y_hat = sigmoid(w^T·xi + b), sigmoid(z_i) = 1 / (1 + e^-z_i)
 		- J(w, b) = (1/m) ∑[1∽m](L(y_hat(i), yi) = -(1/m) ∑[1∽m]((yi·log(y_hat(i)) + (1-yi)log(1 - y_hat(i))))
 		- Want to find w, b, that minimize J(w, b)
-		- w := w - alpha·(dJ(w) / dw)
+		- w := w - α·(dJ(w) / dw)
 			- Alpha: learning rate
 			- dJ(w) / dw: "dw"
-			- Same as… w := w - alpha·dw
+			- Same as… w := w - α·dw
 		- J(w, b)
-			- w := w - alpha·(dJ(w, b) / dw)
-			- b := b - alpha·(DJ(w, b) / db)
+			- w := w - α·(dJ(w, b) / dw)
+			- b := b - α·(DJ(w, b) / db)
 		- ∂: "partial derivative"<br>d: J
 - Video: Derivatives
 	- Intuition about derivatives
@@ -207,9 +207,9 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- dw2 = x2·dz
 		- db = dz
 		- In result,
-			- w1 := w1 - alpha·dw1
-			- w2 := w2 - alpha·dw2
-			- b := b - alpha·db
+			- w1 := w1 - α·dw1
+			- w2 := w2 - α·dw2
+			- b := b - α·db
 - Video: Gradient Descent on m Examples
 	- Logistic regression on m examples
 		- (Check slide)
@@ -275,8 +275,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 			- dZ = A - Y
 			- dw = 1/m·X·dZT
 			- db = 1/m·np.sum(dZ)
-			- w := w - alpha·dw
-			- b := b - alpha·db
+			- w := w - α·dw
+			- b := b - α·db
 - Video: Broadcasting in Python
 	- Broadcasting example
 		- Cal = A.sum(axis=0)
@@ -563,8 +563,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 				- dw[1] = dJ/dW[1]
 				- db[1] = ∂J/∂b[1]
 				- ...
-				- W[1] := W[1] - alpha·dW[1]
-				- b[1] := b[1] - alpha·db[1]
+				- W[1] := W[1] - α·dW[1]
+				- b[1] := b[1] - α·db[1]
 				- ...
 	- Formulas for computing derivatives
 		- Forward propagation:
@@ -647,7 +647,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- dz1[1] = dz2[1]
 		- W[2] = [0 0]
 		- "Symmetric"
-		- W[1] := W[1] - alpha·dW
+		- W[1] := W[1] - α·dW
 			- Resulting that the 1st row will be equal to the 2nd row
 			- Thus, it's same as having 1 neuron
 	- Random initialization
@@ -760,8 +760,8 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		- Backward: Input da[*l*], Output da[*l* - 1]
 			- da[*l*]: Cache z[*l*]
 			- da[*l* - 1]: dW[*l*], db[*l*]
-		- W[*l*] := W[*l*] - alpha·dW[*l*]
-		- b[*l*] := b[*l*] - alpha·db[*l*]
+		- W[*l*] := W[*l*] - α·dW[*l*]
+		- b[*l*] := b[*l*] - α·db[*l*]
 	- (Check slide for more details)
 - Video: Forward and Backward Propagation
 	- Forward propagation for layer *l*
@@ -789,9 +789,32 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Summary
 - Video: Parameters vs Hyperparameters
 	- What are hyperparameters?
+		- Parameters: W[1], b[1], W[2], b[2], W[3], b[3], ...
+		- Hyperparameters:
+			- learning rate (α)
+			- Number of iterations
+			- Number of hidden layers (L)
+			- Number of hidden units (n[1], n[2], ...)
+			- Choice of activation function
+			- More ... (discussed at the later lectures)
+				- Momentum
+				- Minibatch size
+				- Regularization Parameters
 	- Applied deep learning is a very empirical process
+		- Iteration of 'Idea, Code, and Experiment'
+		- Change learning rate, etc.
+		- Applied deep learning to ...
+			- Vision
+			- Speech/NLP
+			- Advertising
+			- Web Search
+			- Recommendation
 - Video: What does this have to with the brain?
 	- Forward and backward propagation
+		- "It's like the brain."
+			- It's probably over-simplified.
+		- Structure of the linear regression is inspired by brain neuron
+			- Axon
 - Quiz: Key concepts on Deep Neural Networks
 - Programming Assignment: Building your Deep Neural Network: Step by Step
 - Programming Assignment: Deep Neural Network Application
