@@ -12,7 +12,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 <br>아래 링크를 클릭하거나 문서를 직접 클릭하세요.
 <br>
 <br>(Complete) [Course 1 - Neural Networks and Deep Learning](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%201%20-%20Neural%20Networks%20and%20Deep%20Learning.md)
-<br>(Progress) [Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%202%20-%20Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization.md)
+<br>(In Progress) [Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%202%20-%20Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization.md)
 <br>(Incomplete) [Course 3 - Structuring Machine Learning Projects](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%203%20-%20Structuring%20Machine%20Learning%20Projects.md)
 <br>(Incomplete) [Course 4 - Convolutional Neural Networks](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%204%20-%20Convolutional%20Neural%20Networks.md)
 <br>(Partially complete, Week 2) [Course 5 - Sequence Models](https://github.com/jungwon1413/deeplearning.ai_lecture_note/blob/v0.01/Course%205%20-%20Sequence%20Models.md)
