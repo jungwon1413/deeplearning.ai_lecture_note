@@ -743,7 +743,7 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 		<br>→ Phonemes (C A T) → Words → Sentence/Phrases
 	- Circuit theory and deep learning
 		- Informally: There are functions you can compute with a "small" L-layer deep neural network that shallower networks require exponentially more hidden units to compute.
-		- y = x1 XOR x2 XOR x3 XOR ... XOR xn
+		- y = x1 (XOR) x2 (XOR) x3 (XOR) ... (XOR) xn
 			- O(log n)
 		- You can compute anything with a "single" layer,
 			- But you will have exponentially large number of neurons, compared to multi-layer neural network
