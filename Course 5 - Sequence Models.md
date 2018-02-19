@@ -1,0 +1,168 @@
+## Course 5: Sequence Models
+### 1주차 (Week 1)
+#### Recurrent Neural Networks
+- Video: Why Sequence Models
+- Video: Notation
+- Video: Recurrent Neural Network Model
+- Video: Backpropagation through time
+- Video: Different types of RNNs
+- Video: Language model and sequence generation
+- Video: Sampling novel sequences
+- Video: Vanishing gradient with RNNs
+- Video: Gated Recurrent Unit (GRU)
+- Video: Long Short Term Memory (LSTM)
+- Video: Bidirectional RNN
+- Video: Deep RNNs
+- Quiz: Recurrent Neural Networks
+- Programming Assignment: Building a recurrent neural network - step by step
+- Programming Assignment: Dinosaur Island - Character-Level Language Modeling
+- Programming Assignment: Jazz Improvisation with LSTM
+
+### 2주차 (Week 2)
+#### Natural Language Processing & Word Embeddings
+- Video: Word Representation
+	- Word Representation
+		- 1-hot representation
+			- Ex) I want a glass of orange juice.
+			- Ex) I want a glass of apple juice.
+	- Featurized representation: word embedding
+	- Visualizing word embeddings
+		- 300D → 2D (t-SNE)
+- Video: Using Word Embeddings
+	- Named entity recognition example
+		- [Sally] [Johnson] [is] [an] [orange] [farmer]
+		- [Robert] [Lin] [is] [an] [apple] [farmer]
+	- Transfer learning and word embeddings
+		- Learn word embeddings from large text corpus. (1-100B words)<br>(Or download pre-trained embedding online.)
+		- Transfer embedding to new task with smaller training set.<br>(Say, 100k words)
+		- Optional: Continue to finetune the word embeddings with new data.
+	- Relation to face encoding
+- Video: Properties of word embeddings
+	- Analogies
+		- Man → Woman is King → Queen?
+	- Analogies using word vectors
+		- e_man - e_woman ≒ e_king - e_?
+		- Find word w: argmax_w sim(e_w, e_king - e_man + e_woman)
+			- e_man - e_woman ≒ e_king - e_w
+			- e_king - e_man + e_woman: 30\~75%
+	- Cosine Similarity
+		- Sim(e_w, e_king - e_man + e_woman)
+			- Sim(u, v) = (u.T * v) / (L2norm.u * L2norm.v)
+			- Ex) Man : Woman as Boy : Girl
+			- Ex2) Ottawa : Canada as Nairobi : Kenya
+			- Ex3) Big : Bigger as Tall : Taller
+			- Ex4) Yen : Japan as Ruble : Russia
+- Video: Embedding matrix
+	- Embedding matrix
+		- In practice, use specialized function to look up an embedding.
+- Video: Learning word embeddings
+	- Neural language model
+	- Other context/target pairs
+		- Ex) I want a glass of orange juice to go along with my cereal.
+		- A glass of orange: context
+			- Last 4 words
+			- 4 words on left & right
+			- Last 1 word
+			- Nearby 1 word
+			- Skipgram
+		- Juice: target
+- Video: Word2Vec
+	- Skipgrams
+		- Ex) I want a glass of orange juice to go along with my cereal.
+			- Context
+				- orange
+			- Target
+				- Juice
+				- Glass
+				- My
+				- …
+	- Model
+		- Vocab size = 10,000k
+		- Context c ("orange") [6257] → Target t ("juice") [4834]
+			- X → Y
+		- O_c → E → e_c → O(softmax) → y_hat
+	- Problems with softmax classification
+		- Hierarchical softmax
+		- How to xample the context c?
+			- The, of, a, and, to, …
+			- Orange, apple, durian, ... 
+- Video: Negative Sampling
+	- Defining a new learning problem
+		- Ex) I want a glass of orange juice to go along with my cereal.
+		- Context	Word	Target
+		Orange	Juice	1
+		Orange	King	0
+		Orange	Book	0
+		Orange	The	0
+		Orange	Of	0
+		- K = 5\~20 for smaller datasets
+		- K = 2\~5 for large dataset
+	- Model
+	- Selecting negative examples
+- Video: GloVe word vectors
+	- Ex) I want a glass of orange juice to go along with my cereal.
+		- c, t
+		- X_ij = # times i (=t) appears in context of j (=c).
+		- X_ij = X_ji
+	- Model
+	- A note on the featurization view of word embeddings
+- Video: Sentiment Classifications
+	- Sentiment classification problem
+		- Example (X → Y)
+			- The dessert is excellent. ★★★★☆
+			- Service was quite low. ★★☆☆☆
+			- Good for a quick meal, but nothing special. ★★★☆☆
+			- Completely lacking in good taste, good service, and good ambience. ★☆☆☆☆
+			- 10,000 → 100,000 words
+	- Simple sentiment classification model
+		- The dessert is excellent. ★★★★☆
+			- [8928] [2468] [4694] [3180]
+			- The
+				- o_8928 → E → e_8928
+			- Desert
+				- o_2468 → E → e_2468
+			- Is
+				- o_4694 → E → e_4694
+			- Excellent
+				- o_3180 → E → e_3180
+			- Average all up (300D) → O(softmax) (1\~5) → y_hat
+			- This model will have bad result with following sentence:
+				- Completely lacking in good taste, good service, and good ambience.
+				- Because the sentence contains 3 'good' words, it will have positive prediction.
+	- RNN for sentiment classification
+		- Many-to-One
+		- "not good"
+- Video: Debiasing word embeddings
+	- The problem of bias in word embeddings
+		- Man : Woman as King : Queen
+		- Man : Computer_Programmer as Woman : Homemaker (X)
+		- Father : Doctor as Mother : Nurse (X)
+		- Word embeddings can reflect gender, ethnicity, age, sexual orientation, and other biases of the text used to train the model.
+	- Addressing bias in word embeddings
+		- Identify bias direction.
+			- e_he - e_she
+			- e_male - e_female
+			- …
+			- Average all up
+		- Neutralize: For every word that is not definitional, project to get rid of bias.
+		- Equalize pairs.
+- Quiz: Natural Language Processing & Word Embeddings
+- Programming Assignment: Operations on Word Vectors - Debiasing
+- Programming Assignment: Emojify
+
+### 3주차 (Week 3)
+#### Sequence Models & Attention Mechanism
+- Video: Basic Models
+- Video: Picking the most likely sentence
+- Video: Beam Search
+- Video: Refinements to Beam Search
+- Video: Error Analysis in Beam Search
+- Video: Blue Score (optional)
+- Video: Attention Model Intuition
+- Video: Attention Model
+- Video: Speech Recognition
+- Video: Trigger Word Detection
+- Video: Conclusion and Thank You
+- Quiz: Sequence Models & Attention Mechanism
+- Programming Assignment: Neural Machine Translation with Attention
+- Programming Assignment: Trigger Word Detection
