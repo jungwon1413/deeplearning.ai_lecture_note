@@ -738,11 +738,9 @@ Andrew Ng교수의 deeplearning.ai Specialization 과정의 노트를 요약한 
 	- Intuition about deep representation
 		- Earlier layer: represent "simple" features (ex: edge)
 		- Later layer: represent "complex" features (ex: human face, fur details, etc.)
-		- - Audio:
+		- Audio:
 		<br>low level audio waveform features (maybe)
-		<br>→ Phonemes (C A T)
-		<br>→ Words
-		<br>→ Sentence/Phrases
+		<br>→ Phonemes (C A T) → Words → Sentence/Phrases
 	- Circuit theory and deep learning
 		- Informally: There are functions you can compute with a "small" L-layer deep neural network that shallower networks require exponentially more hidden units to compute.
 		- y = x1 XOR x2 XOR x3 XOR ... XOR xn
