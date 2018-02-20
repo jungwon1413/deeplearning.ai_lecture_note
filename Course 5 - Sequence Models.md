@@ -2,8 +2,97 @@
 ### 1주차 (Week 1)
 #### Recurrent Neural Networks
 - Video: Why Sequence Models
+	- Examples of sequence data
+		- Speech recognition
+			- Given input audio clip X, asked to map it to transcript Y
+			- Both the input and the output are the sequence data
+		- Music generation
+			- No input given, asked to generate music Y
+			- Only the output is sequence data
+			- Input can be empty set, or a single integer (referring to the genre of the music, etc.)
+		- Sentiment classification
+			- Ex) "There is nothing to like in this movie" ★☆☆☆☆
+			- Input X is sequence, predict how many stars this review would be (Y)
+		- DNA sequence analysis
+			- Given a DNA sequence, corresponds to which part is the protein
+		- Machine translation
+			- Ex) "Voulez-vous chanter avec moi?"(French) → "Do you want to sing with me?"(English)
+		- Video activity recognition
+			- Given a sequence of a video frame, asked to recognize an activity
+		- Name entity recognition
+			- Ex) "Yesterday, Harry Potter met Hermione Granger," → "Harry Potter", "Hermione Granger"
+			- Figure out the names in the sentence
 - Video: Notation
+	- Motivating Example
+		- x: Harry Potter and Hermione Granger invented a new spell.
+		<br>[x<1>, x<2>, x<3>, ..., x<9>] \(word sequence)
+		<br>Tx = 9
+		- y: 1 1 0 1 1 0 0 0 0
+		<br>[y<1>, y<2>, y<3>, ..., y<9>]
+		<br>Ty = 9
+		- x(i)<\t>: i-th example of the input sequence, t-th element
+		- Tx(i): input sequence length for training example
+		- y(i)<\t>: i-th example of the output sequence, t-th element
+		- Ty(i): output sequence length for training example
+		- Tx and Ty can be different
+		- NLP: Natural Language Processing
+	- Representing words
+		- Use vocabulary pool: Dictionary
+			- In case of the word not on the list, there's <UNK> which is 'unknown word'
+		- Dictionary sizes for modern applications with 30,000 ~ 50,000 are more common, and 100,000 is not uncommon.
+		- Some of the larger companies uses about 1 million words
+		- Commercial applications use 30,000 or maybe 50,000 words
+		- Using one-hot representations
+			- x<1> = [0 0 0 0 0 0 ... 0 1 0 0 0 0 ...] \(4075th word is 1)
+			<br>x<2> = [0 0 0 0 0 0 ... 0 0 0 1 0 ...] \(6830th word is 1)
+			<br>x<3> = [0 0 0 0 0 0 ... 1 0 0 0 0 0 ...] \(367th word is 1)
+			<br>...
+			- This list has length of 10,000 (size of the words)
+			- Each of the x<\t> would be one-hot sector
 - Video: Recurrent Neural Network Model
+	- Why not a standard network?
+		- Inputs, outputs can be different lengths in different examples.
+		- Doesn't share features learned across different positions of text.
+	- Recurrent Neural Networks
+		- a<0>: Vector of zeros
+		- Tx = Ty case
+		- Sometimes denoted as a single neuron picture by recursive arrow
+			- To avoid confusion, this lecture will use consecutive draw for recurrent neural networks
+		- X to hidden layer: use 'Wax'
+		- Horizontal connection between hidden layers: use 'Waa'
+		- Output predictions from hidden layer: 'Wya'
+		- Hard problems:
+			- He said, "Teddy Roosevelt was a great President."
+			- He said, "Teddy bears are on sale!"
+			- Both sentences include 'He said, "Teddy '
+			- Difference between 1st Teddy, and 2nd Teddy?
+				- To reduce this problem, Bidirectional RNN is there! (BRNN)
+		- Functions
+			- a<0> = 0(→)
+			- a<1> = g(Waa·a<0> + Wax·x<1> + ba)
+				- Tanh/ReLU
+			- y_hat<1> = g(Wya·a<1> + by)
+				- 'W_ax' details
+					- x: it's going to be multiplied by 'x' entities
+					- a: this is used to compute 'a'-like quantity
+				- Sigmoid
+			- a<\t> = g(Waa·a<\t-1> + Wax·x<\t> + ba)
+			- y_hat<\t> = g(Wya·a<\t> + by)
+	- Simplified RNN notation
+		- a<\t> = g(Waa·a<\t-1> + Wax·x<\t> + ba)
+			- a<\t> = g(Wa[a<\t-1>, x<\t>] + ba)
+			- [Waa|Wax] = Wa (Concatenated)
+			- For example,
+				- Waa: (100, 100)
+				- a<\t-1>: 100
+				- Wax(100, 10000)
+				- x<\t>: 10000
+				- Then, [Waa|Wax]: (100, 100 + 10,000) = Wa
+				- [a<\t-1>, x<\t>]
+				<br>= [a<\t-1> (height 100)
+				<br>x<t>] (height 10,000)
+				<br>(height 10,100)
+		- y_hat<\t> = g(Wya·a<\t> + by)
 - Video: Backpropagation through time
 - Video: Different types of RNNs
 - Video: Language model and sequence generation
