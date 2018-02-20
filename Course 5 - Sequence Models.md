@@ -94,8 +94,54 @@
 				<br>(height 10,100)
 		- y_hat<\t> = g(Wya·a<\t> + by)
 - Video: Backpropagation through time
+	- Forward propagation and backpropagation
+		- L<\t>(y_hat<\t>, y<\t>) = -y<\t>log(y_hat<\t>) - (1 - y<\t>)log(1 - y_hat<\t>)
+		- L(y_hat, y) = ∑[1\∽m]L<\t>(y_hat<\t>, y<\t>)
+		- "Backpropagation through time"
 - Video: Different types of RNNs
+	- Examples of sequence data
+		- (Examples from first lecture)
+	- Examples of RNN architectures
+		- Many-to-one
+			- Sentiment classification
+				- x: text
+				- y: 0/1, 0~5, etc.
+		- Many-to-many	(input at layer *l* corresponds to output at layer *l*)
+			- Tx = Ty
+		- One-to-one
+		- One-to-many
+			- Music generation
+				- x: None
+				- y: [y<1>, y<2>, y<3>, ...]
+		- Many-to-many
+			- Machine translation
+				- Encoder/decoder
+				- Tx ≠ Ty (Seldom equals)
 - Video: Language model and sequence generation
+	- What is language modelling?
+		- Speech recognition
+			- Example (sentences with same pronunciations)
+				- 1) The apple and pair salad.
+				- 2) The apple and pear salad.
+				- P(The apple and pair salad) = 3.2 x 10^-13
+				- P(The apple and pear salad) = 5.7 x 10^-10
+				- P(sentence) = ?
+				<br>P(y<1>, y<2>, y<3>, ..., y<Ty>)
+	- Language Modelling with an RNN
+		- Training set: large corpus of english text.
+			- <b>Tokenize</b>
+				- Ex) Cat average 15 hours of sleep a day. <EOS>
+				<br> y<1> y<2> y<3> ... y<8> y<9>
+				- Ex2) The Egyptian Mau is a bread of cat. <EOS>
+				<br> Mau is unknown word, therefore it's '<UNK>'
+			- x<\t> = y<\t-1>
+	- RNN model
+		- (Check the slide)
+		- L(y_hat<\t>, y<\t>) = -∑[i] yi<\t>log(y_hat(i)<\t>)
+		- L = ∑ L<\t>(y_hat<\t>, y<\t>)
+		- Average P(y<1>, y<2>, y<3>)
+			<br> = P(y<1>) P(y<2>|y<1>)
+			<br> = P(y<3>|y<1>,y<2>)
 - Video: Sampling novel sequences
 - Video: Vanishing gradient with RNNs
 - Video: Gated Recurrent Unit (GRU)
