@@ -51,6 +51,23 @@
 			- Sometimes, it's training/"test"
 			<br>(train/test → train/dev)
 - Video: Bias / Variance
+	- Bias and Variance
+		- high bias: underfitting
+		- high varianvce: overfitting
+		- Example
+			- Considering human error is almost 0%,
+			- Train set error 1%, Dev set error 11%
+				- It does well on train set, so it's high variance.
+			- Train set error 15%, Dev set error 16%
+				- It doesn't do well on both sides, so it's underfitting. (high bias)
+			- Train set error 15%, Dev set error 30%
+				- It has high bias AND high variance. (BOTH)
+			- Train set error 0.5%, Dev set error 1%
+				- Low bias, low variance
+			- optimal (bayes) error is ≒ 0%
+				- If optimal error is 15%, then the result with 15% on train/dev set error would be low variance.
+	- High bias and high variance
+		- High bias in some region and high variance in some region.
 - Video: Basic Recipe for Machine Learning
 - Video: Regularization
 - Video: Why regularization reduces overfitting?
